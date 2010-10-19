@@ -36,7 +36,7 @@ prompt_command () {
   # O comeando para git root:
   # git config --global --add alias.root '!pwd'
   if [ "" != "$BRANCH" ]; then
-    DIR=$(pwd)
+    DIR=$(pwd -P)
     BASE_DIR=`expr "$(git root)" : "\(/.*/\).*"`
     DIR=`expr "$DIR" : ".*$BASE_DIR\(.*\)"`
     DIR="${BCYAN}$DIR"
@@ -70,6 +70,9 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 
 alias ll="ls -lh"
 alias ss="ifork script/server"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../../"
 
 # Capistrano task completion
 complete -C ~/.capistrano-completion.rb -o default cap
