@@ -1,12 +1,13 @@
-export PATH=~/bin:/Applications/Emacs.app/Contents/MacOS/bin/:/Users/HMz/.gem/ruby/1.8/bin:/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8:/usr/local/sbin:$PATH
+export PATH=~/bin:/Users/HMz/.gem/ruby/1.8/bin:/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8:/usr/local/sbin:/usr/local/share/npm/bin:$PATH
 export DAEMON='/Applications/Emacs.app/Contents/MacOS/EMacs'
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export GIT_EDITOR='mate -w'
-export EDITOR='mate'
-export ALTERNATE_EDITOR=""
+export GIT_EDITOR='mvim'
+export EDITOR='mvim'
+export ALTERNATE_EDITOR="mate -w"
+export NODE_PATH="/usr/local/lib/node_modules"
 
 prompt_command () {
   if [ $? -eq 0 ]; then # set an error string for the prompt, if applicable
@@ -28,7 +29,7 @@ prompt_command () {
 
   DIR="\w"
 
-  RVM=`/Users/HMz/.rvm/bin/rvm-prompt i v`
+  RVM=`/Users/HMz/.rvm/bin/rvm-prompt i v g`
   BRANCH=`__git_ps1 [%s]`
     
   # if it's an .git folder, which in my convension is a git repository
@@ -73,6 +74,11 @@ alias ss="ifork script/server"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../../"
+alias pcat=pygmentize
+
+function pless() {
+    pcat "$1" | less -R
+}
 
 # Capistrano task completion
 complete -C ~/.capistrano-completion.rb -o default cap
@@ -81,25 +87,13 @@ complete -C ~/.capistrano-completion.rb -o default cap
 bind '"M-e": history-search-backward'
 bind '"M-r": history-search-forward'
 
-################################################################
-# AUTOJUMP
-#This shell snippet sets the prompt command and the necessary aliases
 
-#Copyright Joel Schaerer 2008, 2009
-#This file is part of autojump
 
-#autojump is free software: you can redistribute it and/or modify
-#it under the terms of the GNU General Public License as published by
-#the Free Software Foundation, either version 3 of the License, or
-#(at your option) any later version.
-#
-#autojump is distributed in the hope that it will be useful,
-#but WITHOUT ANY WARRANTY; without even the implied warranty of
-#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#GNU General Public License for more details.
-#
-#You should have received a copy of the GNU General Public License
-#along with autojump.  If not, see <http://www.gnu.org/licenses/>.
+
+
+#autojump
+
+
 _autojump() 
 {
         local cur
@@ -110,9 +104,25 @@ _autojump()
         done  < <(autojump --bash --completion $cur)
 }
 complete -F _autojump j
-AUTOJUMP='{ (autojump -a "$(pwd -P)"&)>/dev/null 2>>${HOME}/.autojump_errors;} 2>/dev/null'
+data_dir=$([ -e ~/.local/share ] && echo ~/.local/share || echo ~)
+export AUTOJUMP_HOME=${HOME}
+if [[ "$data_dir" = "${HOME}" ]]
+then
+    export AUTOJUMP_DATA_DIR=${data_dir}
+else
+    export AUTOJUMP_DATA_DIR=${data_dir}/autojump
+fi
+if [ ! -e "${AUTOJUMP_DATA_DIR}" ]
+then
+    mkdir "${AUTOJUMP_DATA_DIR}"
+    mv ~/.autojump_py "${AUTOJUMP_DATA_DIR}/autojump_py" 2>>/dev/null #migration
+    mv ~/.autojump_py.bak "${AUTOJUMP_DATA_DIR}/autojump_py.bak" 2>>/dev/null
+    mv ~/.autojump_errors "${AUTOJUMP_DATA_DIR}/autojump_errors" 2>>/dev/null
+fi
+
+AUTOJUMP='{ [[ "$AUTOJUMP_HOME" == "$HOME" ]] && (autojump -a "$(pwd -P)"&)>/dev/null 2>>${AUTOJUMP_DATA_DIR}/autojump_errors;} 2>/dev/null'
 if [[ ! $PROMPT_COMMAND =~ autojump ]]; then
-  export PROMPT_COMMAND="${PROMPT_COMMAND:-:} && $AUTOJUMP"
+  export PROMPT_COMMAND="${PROMPT_COMMAND:-:} ; $AUTOJUMP"
 fi 
 alias jumpstat="autojump --stat"
-function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";fi }
+function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";else false; fi }
