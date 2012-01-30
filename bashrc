@@ -1,5 +1,4 @@
-export PATH=~/bin:/Users/HMz/.gem/ruby/1.8/bin:/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8:/usr/local/sbin:/usr/local/share/npm/bin:$PATH
-export DAEMON='/Applications/Emacs.app/Contents/MacOS/EMacs'
+export PATH=~/bin:/usr/local/sbin:~/.rbenv/bin:/usr/local/share/npm/bin:$PATH
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export CLICOLOR=1
@@ -8,6 +7,8 @@ export GIT_EDITOR="mate --name 'Git Commit Message' -w -l 1"
 export EDITOR='mvim'
 export ALTERNATE_EDITOR="mate -w"
 export NODE_PATH="/usr/local/lib/node_modules"
+
+eval "$(rbenv init -)"
 
 prompt_command () {
   if [ $? -eq 0 ]; then # set an error string for the prompt, if applicable
@@ -29,7 +30,7 @@ prompt_command () {
 
   DIR="\w"
 
-  RVM=`/Users/HMz/.rvm/bin/rvm-prompt i v g`
+  RVM=`rbenv version | awk '{print $1}'`
   BRANCH=`__git_ps1 [%s]`
     
   # if it's an .git folder, which in my convension is a git repository
@@ -83,6 +84,9 @@ function pless() {
 # Capistrano task completion
 complete -C ~/.capistrano-completion.rb -o default cap
 
+# SSH completion
+complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))" ssh
+
 #history search binds
 bind '"M-e": history-search-backward'
 bind '"M-r": history-search-forward'
@@ -126,3 +130,20 @@ if [[ ! $PROMPT_COMMAND =~ autojump ]]; then
 fi 
 alias jumpstat="autojump --stat"
 function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";else false; fi }
+
+
+fp () { #find and list processes matching a case-insensitive partial-match string
+        ps Ao pid,comm|awk '{match($0,/[^\/]+$/); print substr($0,RSTART,RLENGTH)": "$1}'|grep -i $1|grep -v grep
+}
+
+fk () { # build menu to kill process
+    IFS=$'\n'
+    PS3='Kill which process? '
+    select OPT in $(fp $1) "Cancel"; do
+        if [ $OPT != "Cancel" ]; then
+            kill $(echo $OPT|awk '{print $NF}')
+        fi
+        break
+    done
+    unset IFS
+}
