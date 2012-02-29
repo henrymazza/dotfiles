@@ -4,11 +4,13 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export GIT_EDITOR="mate --name 'Git Commit Message' -w -l 1"
-export EDITOR='mvim'
+export EDITOR='mvim -f'
 export ALTERNATE_EDITOR="mate -w"
 export NODE_PATH="/usr/local/lib/node_modules"
 
 eval "$(rbenv init -)"
+
+shopt -s globstar autocd
 
 prompt_command () {
   if [ $? -eq 0 ]; then # set an error string for the prompt, if applicable
@@ -76,6 +78,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../../"
 alias pcat=pygmentize
+alias duf='du -kd 1 | sort -nr | while read size fname; do for unit in k M G T P E Z Y; do if [ $size -lt 1024 ]; then echo -e "${size}${unit}\t${fname}"; break; fi; size=$((size/1024)); done; done'
 
 function pless() {
     pcat "$1" | less -R
@@ -85,11 +88,18 @@ function pless() {
 complete -C ~/.capistrano-completion.rb -o default cap
 
 # SSH completion
-complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))" ssh
+complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
 
 #history search binds
-bind '"M-e": history-search-backward'
-bind '"M-r": history-search-forward'
+# bind '"M-e": history-search-backward'
+# bind '"M-r": history-search-forward'
+
+# History Hacks
+HISTSIZE=9000
+HISTFILESIZE=$HISTSIZE
+HISTCONTROL=ignorespace:ignoredups
+shopt -s histappend
+PROMPT_COMMAND="$PROMPT_COMMAND;history -a; history -n"
 
 
 
