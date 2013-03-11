@@ -1,0 +1,3 @@
+[submodule "gitgutter"]
+	path = gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git

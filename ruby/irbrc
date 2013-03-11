@@ -1,0 +1,23 @@
+require 'rubygems'
+# require 'hirb' 
+
+# reloads the irb console can be useful for debugging .irbrc
+def reload_irb
+  load File.expand_path("~/.irbrc")
+end
+
+if defined? Rails 
+
+#   Hirb.enable(:pager => false, :vertical => :true)
+  
+#   def yaml(output)
+#     output.to_yaml + "\n"
+#   end
+#   Hirb.add_view Hash, :method=>:yaml
+
+  ActiveRecord::Base.logger = Logger.new(STDOUT) 
+
+end
+
+# get rid of the verbose RVM prompt (TODO: make a fancier one)
+IRB.conf[:PROMPT_MODE] = :DEFAULT

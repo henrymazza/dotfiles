@@ -1,0 +1,26 @@
+set visualbell t_vb=
+if has("gui_macvim")
+  set guifont=inconsolata-dz:h17
+  macmenu &Tools.Make key=<nop>
+  macmenu &File.New\ Tab key=<D-S-t>
+  imap <D-/> <Esc>,c<space>
+  map <D-/> <Esc>,c<space>
+  vmap <D-/> ,c<space>
+
+  " CtrlP settings
+  nnoremap <D-t> :CtrlP<CR>
+  inoremap <D-t> <C-o>:CtrlP<CR>
+  nnoremap <D-b> :CtrlPBuffer<CR>
+  inoremap <D-b> <C-o>:CtrlPBuffer<CR>
+  nnoremap <D-r> :CtrlPMRUFiles<CR>
+  inoremap <D-r> <C-o>:CtrlPMRUFiles<CR>
+
+  set invmmta
+  set macmeta
+
+  set fuopt=maxvert,maxhorz
+end
+
+
+
+

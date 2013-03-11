@@ -1,0 +1,16 @@
+" .vimrc.after is loaded after the plugins have loaded
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" My Stuff
+"
+
+"store lots of :cmdline history
+set history=1000
+
+set showcmd     "show incomplete cmds down the bottom
+set showmode    "show current mode down the bottom
+
+set undodir=~/.vim_undodir
+set undofile
+set undolevels = 1000 "maximum number of changes that can be undone
+set undoreload = 10000 "maximum number lines to save for undo on a buffer reload
+

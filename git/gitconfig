@@ -1,0 +1,63 @@
+[user]
+	email = fabio.mazarotto@me.com
+	name = Fabio Mazarotto
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[core]
+	excludesfile = /Users/HMz/.gitignore
+	quotepath = false
+[alias]
+  s = status -sb
+  co = checkout
+  ci = commit
+  rb = rebase
+  root = !pwd
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  # usage example: git w -n5
+  w = whatchanged
+  # add all changed (but not new) files to stage (index):
+  au = add -u
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  # show list of contributors in descending order by number of commits
+  rank = shortlog -sn --no-merges
+  # prune all tracking local branches that have been removed from remote:
+  prune-all = !git remote | xargs -n 1 git remote prune
+  # given a string for an author, try to figure out full name and email:
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  # given any git object, try to show it briefly
+  whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+  # Search for a given string in all patches and print commit messages
+  # example: search for any commit that adds or removes string "foobar"
+  #     git searchcommits foobar
+  # example: search commits for string "foobar" in directory src/lib
+  #     git searchcommits foobar src/lib
+  # example: search commits for "foobar", print full diff of commit with 1 line context
+  #     git searchcommits foobar --pickaxe-all -U1 src/lib
+  searchcommits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
+[difftool "Kaleidoscope"]
+  cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[apply]
+  whitespace=fix  
+[rerere]
+  enabled = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple

@@ -1,0 +1,9 @@
+[submodule "emacs/emacs.d"]
+	path = emacs/emacs.d
+	url = git@github.com:henrymazza/emacs-starter-kit.git
+[submodule "zsh/oh-my-zsh"]
+	path = zsh/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/vim"]
+	path = vim/vim
+	url = https://github.com/carlhuda/janus.git
