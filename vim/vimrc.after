@@ -14,5 +14,65 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
-color sunburst
+" My Old File's stuff
 
+let g:ctrlp_working_path_mode = 0
+
+" Emacs shortcuts on insert mode
+imap <C-p> <C-o>gk
+imap <C-n> <C-o>gj
+imap <C-a> <C-o>g0
+imap <C-e> <C-o>g$
+imap <C-b> <Left>
+imap <C-f> <Right>
+imap <C-d> <Del>
+imap <M-d> <C-o>df<space>
+inoremap <M-f> <S-Right>
+inoremap <M-b> <S-Left>
+nnoremap <D-k> :bd<CR>
+inoremap <D-k> <C-o>:bd<CR>
+imap <D-d> <Esc>ddi
+imap <C-k> <C-o>d$
+
+" Janues puts a <CR> at the end, and it was driving me mad
+nmap <D-/> <Plug>NERDCommenterToggle
+imap <D-/> <C-o><Plug>NERDCommenterToggle
+
+" Movements for Visual Mode
+vmap <C-p> gk
+vmap <C-n> gj
+vmap <C-a> g0
+vmap <C-e> g$
+vmap <C-b> <Left>
+vmap <C-f> <Right>
+vmap <M-f> <C-o>e
+vmap <M-b> <S-Left>
+imap <C-k> <C-o>d$
+
+" command line mode
+cmap <C-p> <Up>
+cmap <C-n> <Down>
+cmap <C-b> <Left>
+cmap <C-f> <Right>
+cmap <C-a> <Home>
+cmap <C-e> <End>
+cmap <M-b> <S-Left>
+cmap <M-f> <S-Right>
+cnoremap <C-d> <Del>
+cnoremap <C-h> <BS>
+cnoremap <M-d> <S-Right><C-w>
+cnoremap <M-h> <C-w>
+cnoremap <C-k> <C-f>D<C-c><C-c>:<Up>
+
+let g:PreviewBrowsers = "open -a Safari"
+
+" ERB surroundings for surround.vim
+autocmd FileType erb let b:surround_45 = "<% \r %>"
+autocmd FileType erb let b:surround_61 = "<%= \r %>"
+
+" From: http://vim.wikia.com/wiki/Cycle_through_buffers_including_hidden_buffers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" Stop Buffergator changing the window size
+let g:buffergator_autoexpand_on_split = 0
