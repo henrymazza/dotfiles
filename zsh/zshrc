@@ -41,3 +41,4 @@ eval "$(rbenv init -)"
 # Customize to your needs...
 export PATH=./bin:/Users/HMz/.rbenv/bin:/Users/HMz/.rbenv/shims:/Users/HMz/bin:/usr/local/sbin:/Users/HMz/.rbenv/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
 
+setopt extendedglob
