@@ -1,0 +1,214 @@
+<LayoutInfo>
+   <clientLayoutData>
+      <global>
+         <view-data filter8.key="DatabasesConnectionsAkivest!A3dboRULES dbo.null@Akivest!" filter47.options="0" filter30.options="0" filter18.key="DatabasesConnectionsAkivestA3_Testesdbo" filter95.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter6.options="0" filter31.options="0" filter80.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter3.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter86.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter97.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter71.key="DatabasesConnectionsAkivestA3_TestesguestLOGINS guest.null@Akivest" filter17.key="DatabasesConnectionsAkivest!A3a3" filter48.key="DatabasesConnectionsAkivest!A3dboIndex dbo.null@Akivest!" filter41.options="0" filter51.options="0" filter26.options="0" filter2.key="DatabasesConnectionsAkivest!A3a3View a3.null@Akivest!" filter38.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter41.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl054_vendas_itens@Akivest" filter24.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter46.options="0" filter96.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter72.key="DatabasesConnectionsAkivestA3_Testes" filter10.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@Akivest" filter11.key="DatabasesConnectionsAkivestA3_TestesguestFUNCTIONS guest.null@Akivest" filter14.options="0" filter28.options="0" filter2.options="0" filter64.key="DatabasesConnectionsAkivest!A3dboDEFAULTS dbo.null@Akivest!" filter70.key="DatabasesConnectionsAkivestA3_TestesdboLOGINS dbo.null@Akivest" filter44.key="DatabasesConnectionsAkivest!A3a3FUNCTIONS a3.null@Akivest!" filter89.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter32.options="0" filter43.options="0" filter14.filterCls="oracle.dbtools.raptor.navigator.SchemaFilter" filter91.key="DatabasesConnectionsAkivest!A3a3Synonym a3.null@Akivest!" filter13.key="DatabasesConnectionsAkivestA3_TestesdboFUNCTIONS dbo.null@Akivest" filter65.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter15.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter53.options="0" filter57.key="DatabasesConnectionsAkivestA3_TestesdboRULES dbo.null@Akivest" filter99.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter19.options="0" filter0.key="DatabasesConnectionsAkivest!AKIVESTdboUSERS dbo.null@Akivest!" filter56.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter59.options="0" filter74.key="DatabasesConnectionsAkivest!AKIVESTdboDEFAULTS dbo.null@Akivest!" filter64.options="0" filter106.options="0" filter73.filterCls="oracle.dbtools.raptor.navigator.ConnectionFilter" filter1.key="DatabasesConnectionsAkivest!AKIVESTdboFUNCTIONS dbo.null@Akivest!" filter8.options="0" filter52.options="0" filter78.filterCls="oracle.dbtools.raptor.navigator.SchemaFilter" filter27.options="0" filter0.options="0" filter88.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter83.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter103.key="DatabasesConnectionsAkivestA3_TestesdboView dbo.null@Akivest" filter50.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter59.key="DatabasesConnectionsAkivestA3_Testesa3FUNCTIONS a3.null@Akivest" filter90.options="0" filter21.options="0" filter2.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter16.key="DatabasesConnectionsAkivest!AKIVESTdboIndex dbo.null@Akivest!" filter4.key="DatabasesConnectionsAkivestA3_TestesguestRULES guest.null@Akivest" filter33.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter1.options="0" filter65.options="0" filter45.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl027_estoque_unidades@Akivest" filter1.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter35.options="0" filter12.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl032_pessoas_contatos_efetuados@Akivest" filter76.options="0" filter9.key="DatabasesConnectionsAkivest!A3dboTRIGGERS dbo.null@Akivest!" filter68.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter97.key="DatabasesConnectionsAkivestA3_TestesdboSynonym dbo.null@Akivest" filter106.key="DatabasesConnectionsAkivestA3_TestesdboUDATATYPES dbo.null@Akivest" filter85.key="DatabasesConnectionsAkivest!A3dboPROCEDURES dbo.null@Akivest!" filter44.options="0" filter70.options="0" filter84.key="DatabasesConnectionsAkivestA3_Testesa3TRIGGERS a3.null@Akivest" filter56.key="DatabasesConnectionsAkivest!AKIVESTdboUDATATYPES dbo.null@Akivest!" filter76.key="DatabasesConnectionsAkivest!A3a3PROCEDURES a3.null@Akivest!" filter7.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter92.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl287_territorial_municipio@Akivest" filter15.options="0" filter58.options="0" filter94.key="DatabasesConnectionsAkivestA3_Testesa3DEFAULTS a3.null@Akivest" filter100.key="DatabasesConnectionsAkivestA3_Testesa3Index a3.null@Akivest" filter18.filterCls="oracle.dbtools.raptor.navigator.SchemaFilter" filter93.options="0" filter52.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter36.options="0" filter15.key="DatabasesConnectionsAkivest!A3dboUDATATYPES dbo.null@Akivest!" filter54.options="0" filter88.key="DatabasesConnectionsAkivest!A3a3DEFAULTS a3.null@Akivest!" filter30.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter10.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter101.options="0" filter26.key="DatabasesConnectionsAkivest!A3dboView dbo.null@Akivest!" filter55.options="0" filter4.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter37.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter102.key="DatabasesConnectionsAkivest!A3a3TRIGGERS a3.null@Akivest!" filter87.options="0" filter40.options="0" filter23.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter36.key="DatabasesConnectionsAkivest!AKIVESTdboView dbo.null@Akivest!" filter71.options="0" filter73.options="0" filter39.options="0" filter18.options="0" filter42.options="0" filter80.options="0" filter65.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl053_vendas@Akivest" filter104.options="0" filter12.options="0" filter50.options="0" filter82.options="0" filter38.options="0" filter75.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl126_fiscal_ecf@Akivest" filter55.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter12.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter91.options="0" filter49.filterCls="oracle.dbtools.raptor.navigator.SchemaFilter" filter60.options="0" filter21.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter105.key="DatabasesConnectionsAkivestA3_TestesguestPROCEDURES guest.null@Akivest" filter66.options="0" filter81.options="0" filter47.key="DatabasesConnectionsAkivest!A3a3UDATATYPES a3.null@Akivest!" filter20.options="0" filter100.options="0" filter61.options="0" filter90.key="DatabasesConnections" filter102.options="0" filter69.key="DatabasesConnectionsAkivestA3_TestesguestIndex guest.null@Akivest" filter17.options="0" filter72.filterCls="oracle.dbtools.raptor.navigator.CatalogFilter" filter48.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter74.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter3.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl156_fiscal_vendas_registro_50_ICMS@Akivest" filter7.options="0" filter46.key="DatabasesConnectionsAkivestA3_TestesguestSynonym guest.null@Akivest" filter106.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter68.key="DatabasesConnectionsAkivest!A3dboLOGINS dbo.null@Akivest!" filter29.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter23.options="0" filter78.options="0" filter105.options="0" filter37.options="0" filter25.key="DatabasesConnectionsAkivestA3_Testesa3" filter63.options="0" filter10.options="0" filter84.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter98.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter48.options="0" filter76.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter47.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter27.key="DatabasesConnectionsAkivestA3_TestesdboTRIGGERS dbo.null@AkivestTRIGGERS dbo.trg_UpdateSaldoConta@Akivest" filter83.key="DatabasesConnectionsAkivest!A3a3RULES a3.null@Akivest!" filter77.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl124_devolucao_cliente_itens@Akivest" filter40.key="DatabasesConnectionsAkivest!AKIVESTdboSynonym dbo.null@Akivest!" filter34.options="0" filter75.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter69.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter14.key="DatabasesConnectionsAkivestA3_Testesguest" filter87.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter67.options="0" filter7.key="DatabasesConnectionsAkivest!A3dboFUNCTIONS dbo.null@Akivest!" filter67.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter31.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl017_grade@Akivest" filter27.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter41.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter16.options="0" filter4.options="0" filter25.options="0" filter26.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter87.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl121_vales_credito@Akivest" filter28.filterCls="oracle.dbtools.raptor.navigator.ConnectionFilter" filter20.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.system_licences@Akivest" filter62.options="0" filter62.key="DatabasesConnectionsAkivest!AKIVESTdboPROCEDURES dbo.null@Akivest!" filter32.key="DatabasesConnectionsAkivestA3_TestesdboTRIGGERS dbo.null@Akivest" filter71.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter104.key="DatabasesConnectionsAkivest!AKIVEST" filter23.key="DatabasesConnectionsAkivest!AKIVESTdboTRIGGERS dbo.null@Akivest!" filter78.key="DatabasesConnectionsAkivest!AKIVESTdbo" filter5.options="0" filter96.options="0" filter6.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter61.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter21.key="DatabasesConnectionsAkivest!A3dboUSERS dbo.null@Akivest!" filter99.options="0" filter80.key="DatabasesConnectionsAkivestA3_Testesa3LOGINS a3.null@Akivest" filter84.options="0" filter46.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter86.options="0" filter81.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter6.key="DatabasesConnectionsAkivestA3_TestesdboUSERS dbo.null@Akivest" filter22.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.Contatos Efetuados@Akivest" filter94.options="0" filter105.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter98.key="DatabasesConnectionsAkivest!A3dboTable dbo.null@Akivest!Table dbo.tbl123_devolucao_cliente@Akivest!" filter77.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter3.options="0" filter57.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter79.key="Databases" filter9.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter96.key="DatabasesConnectionsAkivestA3_Testesa3Synonym a3.null@Akivest" filter60.key="DatabasesConnectionsAkivest!AKIVESTdboTable dbo.null@Akivest!" filter42.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter103.options="0" filter68.options="0" filter53.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter81.key="DatabasesConnectionsAkivestA3_TestesguestDEFAULTS guest.null@Akivest" filter33.options="0" filter58.key="DatabasesConnectionsAkivestA3_TestesdboPROCEDURES dbo.null@Akivest" filter45.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter61.key="DatabasesConnectionsAkivestA3_Testesa3USERS a3.null@Akivest" filter56.options="0" filter43.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter88.options="0" filter24.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl123_devolucao_cliente@Akivest" filter11.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter38.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl026_estoque@Akivest" filter51.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter93.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl008_produtos_servicos@Akivest" filter19.key="DatabasesConnectionsAkivestA3_TestesguestUDATATYPES guest.null@Akivest" filter82.key="DatabasesConnectionsAkivest!A3a3USERS a3.null@Akivest!" filter36.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter39.key="DatabasesConnectionsAkivestA3_Testesa3PROCEDURES a3.null@Akivest" filter62.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter5.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter63.key="DatabasesConnectionsAkivest!A3" filter33.key="DatabasesConnectionsAkivest!AKIVESTdboRULES dbo.null@Akivest!" filter104.filterCls="oracle.dbtools.raptor.navigator.CatalogFilter" filter83.options="0" filter5.key="DatabasesConnectionsAkivestA3_Testesa3Table a3.null@Akivest" filter37.key="DatabasesConnectionsAkivestA3_TestesguestUSERS guest.null@Akivest" filter66.key="DatabasesConnectionsAkivestA3_TestesdboIndex dbo.null@Akivest" filter8.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter52.key="DatabasesConnectionsAkivestA3_Testesa3RULES a3.null@Akivest" filter102.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter99.key="DatabasesConnectionsAkivestA3_TestesguestTable guest.null@Akivest" filter97.options="0" filter58.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter20.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter90.filterCls="oracle.dbtools.raptor.navigator.folders.DatabasesFilter" filter85.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter45.options="0" filter50.key="DatabasesConnectionsAkivest!A3a3Index a3.null@Akivest!" filter79.options="0" filter66.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter63.filterCls="oracle.dbtools.raptor.navigator.CatalogFilter" filter103.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter16.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" ID="DatabaseNavigatorWindow.DatabaseNavigatorName" filter92.options="0" filter22.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter91.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter60.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter77.options="0" filter9.options="0" filter39.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter30.key="DatabasesConnectionsAkivestA3_TestesdboDEFAULTS dbo.null@Akivest" filter25.filterCls="oracle.dbtools.raptor.navigator.SchemaFilter" filter40.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter53.key="DatabasesConnectionsAkivestA3_Testesa3UDATATYPES a3.null@Akivest" filter54.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.system_update@Akivest" filter101.key="DatabasesConnectionsAkivest!A3dboTable dbo.null@Akivest!" filter95.options="0" filter11.options="0" filter94.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter79.filterCls="oracle.dbtools.raptor.navigator.ConnectionStoresFilter" filter51.key="DatabasesConnectionsAkivest!A3a3Table a3.null@Akivest!" filter69.options="0" filter="107" filter72.options="0" filter42.key="DatabasesConnectionsAkivestA3_TestesguestTRIGGERS guest.null@Akivest" filter73.key="DatabasesConnectionsAkivest" filter98.options="0" filter93.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter85.options="0" filter13.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter70.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter86.key="DatabasesConnectionsAkivest!A3a3LOGINS a3.null@Akivest!" filter67.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl030_pessoas@Akivest" filter0.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter64.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter22.options="0" filter19.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter35.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter29.options="0" filter44.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter89.options="0" filter74.options="0" filter17.filterCls="oracle.dbtools.raptor.navigator.SchemaFilter" filter13.options="0" filter92.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter29.key="DatabasesConnectionsAkivestA3_TestesdboTable dbo.null@AkivestTable dbo.tbl127_fiscal_registro_60_mestre@Akivest" filter32.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter43.key="DatabasesConnectionsAkivestA3_TestesguestView guest.null@Akivest" filter101.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter34.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter57.options="0" filter28.key="DatabasesConnectionsAkivest!" filter49.options="0" filter55.key="DatabasesConnectionsAkivestA3_TestesdboView dbo.null@AkivestView dbo.view_devolucoes_itens_produtos@Akivest" filter31.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter34.key="DatabasesConnectionsAkivest!A3dboSynonym dbo.null@Akivest!" filter49.key="DatabasesConnectionsAkivest!A3dbo" filter54.filterCls="oracle.dbtools.raptor.navigator.ObjectNodeFilter" filter89.key="DatabasesConnectionsAkivest!AKIVESTdboLOGINS dbo.null@Akivest!" filter82.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter95.key="DatabasesConnectionsAkivestA3_Testesa3View a3.null@Akivest" filter24.options="0" filter35.key="DatabasesConnectionsAkivest!A3dboTable dbo.null@Akivest!Table dbo.tbl022_estoque_precos_venda@Akivest!" filter100.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter" filter75.options="0" filter59.filterCls="oracle.dbtools.raptor.navigator.ObjectFilter"/>
+         <view-data ID="ReportNavigatorWindow.Reports" ReportsDummy="true"/>
+         <view-data ID="LogWindow.Log" ClosedByUser="false"/>
+      </global>
+      <Editing layout-name="Editing">
+         <view-data pageSelection="" ID="PALETTEFACTORY.PALETTE"/>
+      </Editing>
+   </clientLayoutData>
+   <knownDockableFactories>
+      <Systemoracle_ideimpl_editor_RecentFiles_VIEW_TYPE/>
+      <Applicationoracle_ideimpl_editor_RecentFiles_VIEW_TYPE/>
+      <ExplorerWindow/>
+      <BOOKMARKS_VIEW_TYPE/>
+      <RunManagerWindow/>
+      <LogWindow/>
+      <Debugger/>
+      <DatabaseNavigatorWindow/>
+      <OUTLINE_VIEW_TYPE/>
+      <SQLHISTORY_VIEW_TYPE/>
+      <DBMS_OUTPUT_DOCKABLE_VIEW_TYPE/>
+      <OWA_OUTPUT_DOCKABLE_VIEW_TYPE/>
+      <ReportNavigatorWindow/>
+      <SNIPPET_VIEW_TYPE/>
+      <InspectorWindow/>
+      <PALETTEFACTORY/>
+      <STATUS/>
+      <SEARCH_VIEW_TYPE/>
+      <RECENT_OBJECTS_VIEW_TYPE/>
+      <VHV-VersionProperties/>
+      <VersioningNavigatorWindow/>
+      <ComponentPalette/>
+      <TASK_PROGRESS_VIEW_TYPE/>
+      <SchemaBrowser/>
+      <DbaNavigatorWindow/>
+      <ToDoAddin/>
+      <FileNavigatorWindow/>
+      <EXTDockable/>
+      <SPATIAL_VIEW_TYPE/>
+      <UtNavigatorWindow/>
+      <oracle-jdeveloper-subversion-PendingChangesWindow/>
+      <MigrationProjectNavigatorWindow/>
+   </knownDockableFactories>
+   <dockingPositions>
+      <WEST floatSize="180" dockSize="453">
+         <box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="DatabaseNavigatorWindow.DatabaseNavigatorName" floatWidth="400"/>
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="ReportNavigatorWindow.Reports" floatWidth="400"/>
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="UtNavigatorWindow.Unit Test" floatWidth="400"/>
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="FileNavigatorWindow.Files" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="RECENT_OBJECTS_VIEW_TYPE.oracle-dbtools-raptor-recent-objects-Window" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="SEARCH_VIEW_TYPE.oracle-dbtools-raptor-nav-search-Window" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="OUTLINE_VIEW_TYPE.oracle-dbtools-raptor-plsql-structure-Window" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="DbaNavigatorWindow.DbaNavigatorName" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="ExplorerWindow.SingletonExplorerWindow" floatWidth="400"/>
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="Debugger.StackWindow" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="RunManagerWindow" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="VersioningNavigatorWindow.VersioningNavigator" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="EXTDockable.DM_BROWSER" floatWidth="400"/>
+               </leafBox>
+            </box>
+         </box>
+      </WEST>
+      <EAST floatSize="180" dockSize="249">
+         <box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="PALETTEFACTORY.PALETTE" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="ComponentPalette" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="InspectorWindow.SingletonInspectorWindow" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="EXTDockable.DM_NAVIGATOR" floatWidth="400"/>
+               </leafBox>
+            </box>
+            <box>
+               <leafBox height="300" width="400">
+                  <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="SNIPPET_VIEW_TYPE.SNIPPET_VIEW_ID" floatWidth="400"/>
+               </leafBox>
+            </box>
+         </box>
+      </EAST>
+      <NORTH floatSize="180" dockSize="150"/>
+      <SOUTH floatSize="180" dockSize="241">
+         <box>
+            <leafBox height="300" width="400">
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="BOOKMARKS_VIEW_TYPE.BOOKMARK_VIEW_ID" floatWidth="400"/>
+            </leafBox>
+         </box>
+         <box>
+            <leafBox height="300" width="400">
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="LogWindow.Log" floatWidth="400"/>
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="Debugger.BreakpointsWindow" floatWidth="400"/>
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="Debugger.SmartWindow" floatWidth="400"/>
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="Debugger.LocalsWindow" floatWidth="400"/>
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="Debugger.WatchWindow" floatWidth="400"/>
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="ToDoAddin.ToDoWindow" floatWidth="400"/>
+            </leafBox>
+         </box>
+         <box>
+            <leafBox height="300" width="400">
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="SQLHISTORY_VIEW_TYPE.SQLHISTORY_VIEW_ID" floatWidth="400"/>
+            </leafBox>
+         </box>
+         <box>
+            <leafBox height="300" width="400">
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="DBMS_OUTPUT_DOCKABLE_VIEW_TYPE.DBMS_OUTPUT_DOCKABLE_VIEW_ID" floatWidth="400"/>
+            </leafBox>
+         </box>
+         <box>
+            <leafBox height="300" width="400">
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="OWA_OUTPUT_DOCKABLE_VIEW_TYPE.OWA_OUTPUT_DOCKABLE_VIEW_ID" floatWidth="400"/>
+            </leafBox>
+         </box>
+         <box>
+            <leafBox height="300" width="400">
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="STATUS.STATUS" floatWidth="400"/>
+            </leafBox>
+         </box>
+         <box>
+            <leafBox height="300" width="400">
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="TASK_PROGRESS_VIEW_TYPE.TASK_PROGRESS_VIEW_ID" floatWidth="400"/>
+            </leafBox>
+         </box>
+         <box>
+            <leafBox height="300" width="400">
+               <dockable dockWidth="400" floatHeight="300" floatOrientation="-1" dockHeight="300" ID="SPATIAL_VIEW_TYPE.SPATIAL_VIEW_ID" floatWidth="400"/>
+            </leafBox>
+         </box>
+      </SOUTH>
+   </dockingPositions>
+   <editorPositions/>
+   <visibilityLayouts>
+      <Editing displayName="Editing">
+         <EXTDockable.DM_NAVIGATOR/>
+         <STATUS.STATUS/>
+         <Debugger.WatchWindow/>
+         <Debugger.SmartWindow/>
+         <OWA_OUTPUT_DOCKABLE_VIEW_TYPE.OWA_OUTPUT_DOCKABLE_VIEW_ID/>
+         <InspectorWindow.SingletonInspectorWindow/>
+         <SPATIAL_VIEW_TYPE.SPATIAL_VIEW_ID/>
+         <ExplorerWindow.SingletonExplorerWindow/>
+         <VersioningNavigatorWindow.VersioningNavigator/>
+         <TASK_PROGRESS_VIEW_TYPE.TASK_PROGRESS_VIEW_ID raised="true" visible="true"/>
+         <DatabaseNavigatorWindow.DatabaseNavigatorName raised="true" visible="true"/>
+         <ComponentPalette/>
+         <LogWindow.Log raised="true" visible="true"/>
+         <DBMS_OUTPUT_DOCKABLE_VIEW_TYPE.DBMS_OUTPUT_DOCKABLE_VIEW_ID/>
+         <RunManagerWindow/>
+         <OUTLINE_VIEW_TYPE.oracle-dbtools-raptor-plsql-structure-Window/>
+         <Debugger.LocalsWindow/>
+         <ReportNavigatorWindow.Reports visible="true"/>
+         <RECENT_OBJECTS_VIEW_TYPE.oracle-dbtools-raptor-recent-objects-Window/>
+         <SEARCH_VIEW_TYPE.oracle-dbtools-raptor-nav-search-Window/>
+         <ToDoAddin.ToDoWindow/>
+         <EXTDockable.DM_BROWSER/>
+         <_escaped _escapedValue="UtNavigatorWindow.Unit Test"/>
+         <Debugger.BreakpointsWindow/>
+         <DbaNavigatorWindow.DbaNavigatorName/>
+         <FileNavigatorWindow.Files/>
+         <Debugger.StackWindow/>
+         <SQLHISTORY_VIEW_TYPE.SQLHISTORY_VIEW_ID/>
+         <SNIPPET_VIEW_TYPE.SNIPPET_VIEW_ID/>
+         <BOOKMARKS_VIEW_TYPE.BOOKMARK_VIEW_ID/>
+         <PALETTEFACTORY.PALETTE/>
+      </Editing>
+   </visibilityLayouts>
+</LayoutInfo>

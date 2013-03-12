@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">T017_PK_GUID</Item>
+      <Item class="java.lang.String">T008_PK_FK_GUID_produto_servico</Item>
+      <Item class="java.lang.String">T017_FK_GUID_grade_1</Item>
+      <Item class="java.lang.String">T017_tipo_grade_1</Item>
+      <Item class="java.lang.String">T017_FK_GUID_grade_2</Item>
+      <Item class="java.lang.String">T017_tipo_grade_2</Item>
+      <Item class="java.lang.String">T017_codigo_full</Item>
+      <Item class="java.lang.String">T017_detalhe</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_VALUE</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_DATE</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_GUID_USER</Item>
+      <Item class="java.lang.String">T030_FK_GUID_filial</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>275</Item>
+      <Item>302</Item>
+      <Item>257</Item>
+      <Item>103</Item>
+      <Item>257</Item>
+      <Item>103</Item>
+      <Item>93</Item>
+      <Item>77</Item>
+      <Item>128</Item>
+      <Item>122</Item>
+      <Item>149</Item>
+      <Item>257</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item/>
+   </sortClauses>
+   <uniqueName>SELECT * FROM [tbl017_grade] WHERE [tbl017_grade].[SYSTEM_DELETED_VALUE] = 0 AND T017_codigo_full LIKE '133614%'</uniqueName>
+</TableSettings>

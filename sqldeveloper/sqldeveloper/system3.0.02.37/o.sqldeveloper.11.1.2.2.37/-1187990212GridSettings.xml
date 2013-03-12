@@ -1,0 +1,160 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">T054_PK_GUID</Item>
+      <Item class="java.lang.String">T053_FK_GUID_venda</Item>
+      <Item class="java.lang.String">T054_id_produto</Item>
+      <Item class="java.lang.String">T008_FK_GUID_produto_servico</Item>
+      <Item class="java.lang.String">T017_FK_GUID_grade</Item>
+      <Item class="java.lang.String">T027_FK_GUID_unidade</Item>
+      <Item class="java.lang.String">T021_FK_GUID_tabela_preco</Item>
+      <Item class="java.lang.String">T050_FK_GUID_plano_recebimento</Item>
+      <Item class="java.lang.String">T054_quantidade</Item>
+      <Item class="java.lang.String">T054_preco</Item>
+      <Item class="java.lang.String">T054_desconto</Item>
+      <Item class="java.lang.String">T054_preco_final</Item>
+      <Item class="java.lang.String">T054_descricao_adicional</Item>
+      <Item class="java.lang.String">T030_FK_GUID_vendedor</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_VALUE</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_DATE</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_GUID_USER</Item>
+      <Item class="java.lang.String">T053_numero_item</Item>
+      <Item class="java.lang.String">T054_quantidade_devolvida</Item>
+      <Item class="java.lang.String">T054_desconto_promocional</Item>
+      <Item class="java.lang.String">T126_FK_GUID_fiscal_ecf</Item>
+      <Item class="java.lang.String">T054_numero_cupom_fiscal</Item>
+      <Item class="java.lang.String">T054_numero_item_cupom_fiscal</Item>
+      <Item class="java.lang.String">T054_aliquota_icms</Item>
+      <Item class="java.lang.String">T054_base_calculo_icms</Item>
+      <Item class="java.lang.String">T054_valor_icms</Item>
+      <Item class="java.lang.String">T054_situacao_tributaria_aliquota</Item>
+      <Item class="java.lang.String">T054_codigo_situacao_tributaria</Item>
+      <Item class="java.lang.String">T054_aliquota_IPI</Item>
+      <Item class="java.lang.String">T054_valor_IPI</Item>
+      <Item class="java.lang.String">T141_FK_GUID_tipo_garantia</Item>
+      <Item class="java.lang.String">T054_data_expiracao_garantia</Item>
+      <Item class="java.lang.String">T054_nome_produto_servico</Item>
+      <Item class="java.lang.String">T013_FK_GUID_serial</Item>
+      <Item class="java.lang.String">T054_especificacao</Item>
+      <Item class="java.lang.String">T051_FK_GUID_plano_contabil</Item>
+      <Item class="java.lang.String">T054_base_icms_substituicao</Item>
+      <Item class="java.lang.String">T054_valor_icms_substituicao</Item>
+      <Item class="java.lang.String">T021_GUID_tabela_preco_custo_lucratividade</Item>
+      <Item class="java.lang.String">T054_lucratividade_preco_custo</Item>
+      <Item class="java.lang.String">T054_lucratividade_percentual_imposto_renda</Item>
+      <Item class="java.lang.String">T054_lucratividade_valor_imposto_renda</Item>
+      <Item class="java.lang.String">T054_lucratividade_percentual_pis</Item>
+      <Item class="java.lang.String">T054_lucratividade_valor_pis</Item>
+      <Item class="java.lang.String">T054_lucratividade_percentual_cofins</Item>
+      <Item class="java.lang.String">T054_lucratividade_valor_cofins</Item>
+      <Item class="java.lang.String">T054_lucratividade_percentual_outras</Item>
+      <Item class="java.lang.String">T054_lucratividade_valor_outras</Item>
+      <Item class="java.lang.String">T054_lucratividade_percentual_despesas_financeiras</Item>
+      <Item class="java.lang.String">T054_lucratividade_valor_despesas_financeiras</Item>
+      <Item class="java.lang.String">T054_descricao_servico</Item>
+      <Item class="java.lang.String">T054_percentual_desconto_rateado_venda</Item>
+      <Item class="java.lang.String">T054_valor_desconto_rateado_venda</Item>
+      <Item class="java.lang.String">T054_quantidade_entregue</Item>
+      <Item class="java.lang.String">T053_FK_GUID_novo_pedido</Item>
+      <Item class="java.lang.String">T054_status_transferencia_item</Item>
+      <Item class="java.lang.String">T054_preco_final_em_moeda_estrangeira</Item>
+      <Item class="java.lang.String">T255_FK_GUID_Detalhe1</Item>
+      <Item class="java.lang.String">T256_FK_GUID_Detalhe2</Item>
+      <Item class="java.lang.String">T257_FK_GUID_Detalhe3</Item>
+      <Item class="java.lang.String">T054_altura</Item>
+      <Item class="java.lang.String">T054_largura</Item>
+      <Item class="java.lang.String">T054_preco_liquido</Item>
+      <Item class="java.lang.String">T054_calculo_preco_area</Item>
+      <Item class="java.lang.String">T054_servico_rateado</Item>
+      <Item class="java.lang.String">T054_valor_icms_diferimento</Item>
+      <Item class="java.lang.String">T054_percentual_desconto_rateado_pedido</Item>
+      <Item class="java.lang.String">T054_valor_desconto_rateado_pedido</Item>
+      <Item class="java.lang.String">T054_valor_vale_credito_rateado</Item>
+      <Item class="java.lang.String">T054_peso_por_espessura</Item>
+      <Item class="java.lang.String">T054_soma_icms_retido</Item>
+      <Item class="java.lang.String">T014_FK_GUID_edicao</Item>
+      <Item class="java.lang.String">T012_FK_GUID_lote</Item>
+      <Item class="java.lang.String">T054_percentual_comissao</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>257</Item>
+      <Item>260</Item>
+      <Item>113</Item>
+      <Item>257</Item>
+      <Item>257</Item>
+      <Item>257</Item>
+      <Item>257</Item>
+      <Item>179</Item>
+      <Item>95</Item>
+      <Item>67</Item>
+      <Item>84</Item>
+      <Item>94</Item>
+      <Item>135</Item>
+      <Item>257</Item>
+      <Item>128</Item>
+      <Item>122</Item>
+      <Item>149</Item>
+      <Item>104</Item>
+      <Item>146</Item>
+      <Item>149</Item>
+      <Item>257</Item>
+      <Item>145</Item>
+      <Item>172</Item>
+      <Item>107</Item>
+      <Item>129</Item>
+      <Item>91</Item>
+      <Item>177</Item>
+      <Item>169</Item>
+      <Item>97</Item>
+      <Item>81</Item>
+      <Item>151</Item>
+      <Item>161</Item>
+      <Item>149</Item>
+      <Item>113</Item>
+      <Item>106</Item>
+      <Item>157</Item>
+      <Item>154</Item>
+      <Item>155</Item>
+      <Item>257</Item>
+      <Item>166</Item>
+      <Item>237</Item>
+      <Item>209</Item>
+      <Item>179</Item>
+      <Item>151</Item>
+      <Item>194</Item>
+      <Item>166</Item>
+      <Item>196</Item>
+      <Item>168</Item>
+      <Item>269</Item>
+      <Item>241</Item>
+      <Item>125</Item>
+      <Item>218</Item>
+      <Item>190</Item>
+      <Item>144</Item>
+      <Item>147</Item>
+      <Item>167</Item>
+      <Item>213</Item>
+      <Item>130</Item>
+      <Item>130</Item>
+      <Item>130</Item>
+      <Item>69</Item>
+      <Item>75</Item>
+      <Item>105</Item>
+      <Item>133</Item>
+      <Item>117</Item>
+      <Item>153</Item>
+      <Item>222</Item>
+      <Item>194</Item>
+      <Item>171</Item>
+      <Item>138</Item>
+      <Item>127</Item>
+      <Item>118</Item>
+      <Item>105</Item>
+      <Item>142</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item/>
+   </sortClauses>
+   <uniqueName>select * from tbl054_vendas_itens where T027_FK_GUID_unidade &lt;> 'd0a6c658-a974-43ef-ac09-ba3938580f6b'</uniqueName>
+</TableSettings>

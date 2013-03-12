@@ -1,0 +1,142 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">T008_PK_GUID</Item>
+      <Item class="java.lang.String">T025_FK_GUID_sub_classe</Item>
+      <Item class="java.lang.String">T006_FK_GUID_marca</Item>
+      <Item class="java.lang.String">T011_FK_GUID_common_field</Item>
+      <Item class="java.lang.String">T008_id</Item>
+      <Item class="java.lang.String">T008_tipo</Item>
+      <Item class="java.lang.String">T008_nome</Item>
+      <Item class="java.lang.String">T008_observacoes</Item>
+      <Item class="java.lang.String">T008_nome_nota</Item>
+      <Item class="java.lang.String">T008_peso_liquido</Item>
+      <Item class="java.lang.String">T008_peso_bruto</Item>
+      <Item class="java.lang.String">T008_referencia_fornecedor</Item>
+      <Item class="java.lang.String">T008_detalhe</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_VALUE</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_DATE</Item>
+      <Item class="java.lang.String">SYSTEM_DELETED_GUID_USER</Item>
+      <Item class="java.lang.String">T008_data_cadastro</Item>
+      <Item class="java.lang.String">T030_FK_GUID_repositor</Item>
+      <Item class="java.lang.String">T008_descontinuado</Item>
+      <Item class="java.lang.String">T053_GUID_ultima_venda</Item>
+      <Item class="java.lang.String">T073_GUID_ultima_compra</Item>
+      <Item class="java.lang.String">T008_ultima_venda_preco</Item>
+      <Item class="java.lang.String">T008_ultima_compra_preco</Item>
+      <Item class="java.lang.String">T067_FK_GUID_sub_grupo</Item>
+      <Item class="java.lang.String">T119_FK_GUID_familia</Item>
+      <Item class="java.lang.String">T008_manter_vinculo</Item>
+      <Item class="java.lang.String">T008_desconto</Item>
+      <Item class="java.lang.String">T008_codigo_ordenacao</Item>
+      <Item class="java.lang.String">T040_FK_GUID_classificacao_fiscal</Item>
+      <Item class="java.lang.String">T003_FK_GUID_grupo_encargo</Item>
+      <Item class="java.lang.String">T030_FK_GUID_filial</Item>
+      <Item class="java.lang.String">T008_permite_alterar_preco_tela_pre_venda</Item>
+      <Item class="java.lang.String">T008_permite_alterar_preco_tela_venda</Item>
+      <Item class="java.lang.String">T008_permite_alterar_preco_tela_pedido</Item>
+      <Item class="java.lang.String">T008_utiliza_serial</Item>
+      <Item class="java.lang.String">T183_FK_GUID_ncm</Item>
+      <Item class="java.lang.String">T008_registro_anvisa</Item>
+      <Item class="java.lang.String">T008_responsavel_tecnico</Item>
+      <Item class="java.lang.String">T008_registro_CREA</Item>
+      <Item class="java.lang.String">T027_FK_GUID_unidade_padrao</Item>
+      <Item class="java.lang.String">T008_data_inventario</Item>
+      <Item class="java.lang.String">T008_localizacao_estoque</Item>
+      <Item class="java.lang.String">T232_FK_GUID_grupo_produto_orcamento</Item>
+      <Item class="java.lang.String">T008_inativo</Item>
+      <Item class="java.lang.String">T008_nome_foto</Item>
+      <Item class="java.lang.String">T008_volumagem</Item>
+      <Item class="java.lang.String">T008_espessura</Item>
+      <Item class="java.lang.String">T008_bemacash_codigo_tributacao</Item>
+      <Item class="java.lang.String">T008_bemacash_aliquota_ICMS</Item>
+      <Item class="java.lang.String">T008_percentual_comissao</Item>
+      <Item class="java.lang.String">T008_id_ecf</Item>
+      <Item class="java.lang.String">T022_PK_GUID</Item>
+      <Item class="java.lang.String">T008_FK_GUID_produto_servico</Item>
+      <Item class="java.lang.String">T021_FK_GUID_tabela_precos</Item>
+      <Item class="java.lang.String">T049_FK_GUID_moeda</Item>
+      <Item class="java.lang.String">T027_FK_GUID_unidade</Item>
+      <Item class="java.lang.String">T017_FK_GUID_grade</Item>
+      <Item class="java.lang.String">T022_valor</Item>
+      <Item class="java.lang.String">T022_data_hora</Item>
+      <Item class="java.lang.String">T022_preco_calculado</Item>
+      <Item class="java.lang.String">T022_preco_anterior</Item>
+      <Item class="java.lang.String">T022_base_calculo_ICMS_retido</Item>
+      <Item class="java.lang.String">T030_FK_GUID_filial_1</Item>
+      <Item class="java.lang.String">T022_preco_minimo</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>257</Item>
+      <Item>257</Item>
+      <Item>257</Item>
+      <Item>257</Item>
+      <Item>49</Item>
+      <Item>59</Item>
+      <Item>306</Item>
+      <Item>100</Item>
+      <Item>306</Item>
+      <Item>101</Item>
+      <Item>94</Item>
+      <Item>148</Item>
+      <Item>110</Item>
+      <Item>128</Item>
+      <Item>122</Item>
+      <Item>149</Item>
+      <Item>166</Item>
+      <Item>130</Item>
+      <Item>111</Item>
+      <Item>257</Item>
+      <Item>257</Item>
+      <Item>137</Item>
+      <Item>144</Item>
+      <Item>136</Item>
+      <Item>120</Item>
+      <Item>114</Item>
+      <Item>84</Item>
+      <Item>187</Item>
+      <Item>179</Item>
+      <Item>257</Item>
+      <Item>257</Item>
+      <Item>227</Item>
+      <Item>206</Item>
+      <Item>210</Item>
+      <Item>103</Item>
+      <Item>257</Item>
+      <Item>114</Item>
+      <Item>138</Item>
+      <Item>108</Item>
+      <Item>257</Item>
+      <Item>116</Item>
+      <Item>139</Item>
+      <Item>214</Item>
+      <Item>73</Item>
+      <Item>92</Item>
+      <Item>96</Item>
+      <Item>89</Item>
+      <Item>181</Item>
+      <Item>163</Item>
+      <Item>142</Item>
+      <Item>69</Item>
+      <Item>82</Item>
+      <Item>163</Item>
+      <Item>154</Item>
+      <Item>119</Item>
+      <Item>125</Item>
+      <Item>114</Item>
+      <Item>64</Item>
+      <Item>89</Item>
+      <Item>118</Item>
+      <Item>111</Item>
+      <Item>165</Item>
+      <Item>119</Item>
+      <Item>108</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item/>
+   </sortClauses>
+   <uniqueName>Select * from tbl008_produtos_servicos left outer join tbl022_estoque_precos_venda 
+on tbl008_produtos_servicos.T008_PK_GUID = tbl022_estoque_precos_venda.T008_FK_GUID_produto_servico
+and tbl022_estoque_precos_venda.T008_FK_GUID_produto_servico is null</uniqueName>
+</TableSettings>

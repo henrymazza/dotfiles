@@ -1,0 +1,1 @@
+select * from tbl026_estoque where T027_FK_GUID_unidade <> 'd0a6c658-a974-43ef-ac09-ba3938580f6b'

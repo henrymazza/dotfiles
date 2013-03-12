@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<client-settings class="java.util.HashMap" xmlns="http://xmlns.oracle.com/jdeveloper/110000/client-preferences">
+   <Item>
+      <Key>ToDoOptions</Key>
+      <Value class="oracle.jdevimpl.todo.ToDoOptions">
+         <dateFormatString>M/d/yy</dateFormatString>
+         <filterList class="java.util.ArrayList"/>
+         <priorityIdGenerator>100</priorityIdGenerator>
+         <priorityList class="java.util.ArrayList">
+            <Item class="oracle.jdevimpl.todo.ToDoPriority">
+               <iconURLString>jar:file:/Volumes/Home/Users/HMz/Downloads/SQLDeveloper.app/Contents/Resources/sqldeveloper/ide/extensions/oracle.todo.tasks.jar!/oracle/jdevimpl/resource/images/task_high.gif</iconURLString>
+               <id>1</id>
+               <ranking>3</ranking>
+               <text>High</text>
+            </Item>
+            <Item class="oracle.jdevimpl.todo.ToDoPriority">
+               <iconURLString>jar:file:/Volumes/Home/Users/HMz/Downloads/SQLDeveloper.app/Contents/Resources/sqldeveloper/ide/extensions/oracle.todo.tasks.jar!/oracle/jdevimpl/resource/images/task_medium.gif</iconURLString>
+               <id>2</id>
+               <ranking>2</ranking>
+               <text>Medium</text>
+            </Item>
+            <Item class="oracle.jdevimpl.todo.ToDoPriority">
+               <iconURLString/>
+               <id>3</id>
+               <ranking>1</ranking>
+               <text>Low</text>
+            </Item>
+            <Item class="oracle.jdevimpl.todo.ToDoPriority">
+               <iconURLString/>
+               <id>0</id>
+               <ranking>0</ranking>
+               <text>None</text>
+            </Item>
+         </priorityList>
+         <tagList class="java.util.ArrayList">
+            <Item class="oracle.jdevimpl.todo.ToDoTag">
+               <enabled>true</enabled>
+               <extensionId>oracle.todo.tasks</extensionId>
+               <priorityId>1</priorityId>
+               <tag>TASK</tag>
+            </Item>
+            <Item class="oracle.jdevimpl.todo.ToDoTag">
+               <enabled>true</enabled>
+               <extensionId>oracle.todo.tasks</extensionId>
+               <priorityId>1</priorityId>
+               <tag>TODO</tag>
+            </Item>
+            <Item class="oracle.jdevimpl.todo.ToDoTag">
+               <enabled>true</enabled>
+               <extensionId>oracle.todo.tasks</extensionId>
+               <priorityId>1</priorityId>
+               <tag>FIXME</tag>
+            </Item>
+         </tagList>
+      </Value>
+   </Item>
+</client-settings>

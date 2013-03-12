@@ -1,0 +1,5 @@
+SELECT datepart(yyyymm, T030_data_cadastro) as the_month,
+count(*) as the_sum FROM tbl030_pessoas
+        GROUP BY the_month 
+        ORDER BY the_month
+          

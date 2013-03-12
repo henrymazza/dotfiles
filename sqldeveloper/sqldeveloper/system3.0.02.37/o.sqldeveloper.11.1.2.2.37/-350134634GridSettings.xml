@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSettings class="oracle.dbtools.raptor.controls.grid.RaptorGridPersistedSettings" xmlns="http://xmlns.oracle.com/jdeveloper/110000/Table-attributes">
+   <columnPositions class="java.util.ArrayList">
+      <Item class="java.lang.String">T054_id_produto</Item>
+   </columnPositions>
+   <columnWidths>
+      <Item>210</Item>
+   </columnWidths>
+   <searchParams class="java.util.ArrayList"/>
+   <sortClauses>
+      <Item/>
+   </sortClauses>
+   <uniqueName>SELECT [tbl054_vendas_itens].T054_id_produto FROM [tbl054_vendas_itens] WHERE ([tbl054_vendas_itens].[SYSTEM_DELETED_VALUE] = 0) AND (T027_FK_GUID_unidade &lt;> 'd0a6c658-a974-43ef-ac09-ba3938580f6b')</uniqueName>
+</TableSettings>

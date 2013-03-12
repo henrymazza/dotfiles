@@ -1,0 +1,3 @@
+        SELECT MONTH(T030_data_cadastro) as the_month, YEAR(T030_data_cadastro) as the_year, count(*) as the_sum FROM tbl030_pessoas
+        GROUP BY MONTH(T030_data_cadastro), YEAR(T030_data_cadastro)
+        ORDER BY YEAR(T030_data_cadastro), MONTH(T030_data_cadastro)
