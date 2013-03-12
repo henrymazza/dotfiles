@@ -4,3 +4,4 @@ chef*/chef/checksums
 emacs*/emacs-backup/**
 emacs*/emacs_backups/**
 emacs*/emacs_autosaves/**
+trash.disabled
