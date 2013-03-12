@@ -10,3 +10,9 @@
 [submodule "vim/janus/gitgutter"]
 	path = vim/janus/gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim/janus/surround"]
+	path = vim/janus/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/janus/css-color"]
+	path = vim/janus/css-color
+	url = https://github.com/skammer/vim-css-color.git
