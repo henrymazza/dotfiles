@@ -16,3 +16,6 @@
 [submodule "vim/janus/css-color"]
 	path = vim/janus/css-color
 	url = https://github.com/skammer/vim-css-color.git
+[submodule "vim/janus/delimitMate"]
+	path = vim/janus/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
