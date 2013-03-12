@@ -19,6 +19,7 @@ if has("gui_macvim")
   set macmeta
 
   set fuopt=maxvert,maxhorz
+
 end
 
 
