@@ -100,3 +100,5 @@ hi cssClassName  guifg=#89bdff guibg=NONE gui=NONE
 hi cssValueLength  guifg=#3387cc guibg=NONE gui=NONE
 hi cssCommonAttr  guifg=#cf6a4c guibg=NONE gui=NONE
 hi cssBraces  guifg=NONE guibg=NONE gui=NONE
+
+hi SignColumn guibg=#000000
