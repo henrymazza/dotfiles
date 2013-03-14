@@ -1,4 +1,3 @@
-if has("gui_macvim")
-  set guifont=inconsolata-dz:h17
-  color ir_black
-end
+set guifont=inconsolata-dz:h17
+colorscheme ir_black
+highlight SignColumn guibg=#000000
