@@ -76,3 +76,7 @@ nnoremap <S-Tab> :bprevious<CR>
 
 " Stop Buffergator changing the window size
 let g:buffergator_autoexpand_on_split = 0
+
+" Remove tralling whitespaces on saving
+autocmd BufWritePre * :%s/\s\+$//e
+
