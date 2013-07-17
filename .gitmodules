@@ -4,6 +4,7 @@
 [submodule "vim/vim"]
 	path = vim/vim
 	url = https://github.com/carlhuda/janus.git
+  ignore = dirty
 [submodule "emacs/emacs.d"]
 	path = emacs/emacs.d
 	url = git@github.com:henrymazza/emacs-starter-kit.git
