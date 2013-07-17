@@ -7,4 +7,5 @@ emacs*/emacs_autosaves/**
 trash.disabled
 ruby/pry_history
 postgres/psql_history
-local/local/share/autojump/
+local/local/share/autojump
+ssh

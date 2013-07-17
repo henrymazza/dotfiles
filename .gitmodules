@@ -46,3 +46,6 @@
 [submodule "vim/janus/elixir"]
 	path = vim/janus/elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule "vim/janus/powerline"]
+	path = vim/janus/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git

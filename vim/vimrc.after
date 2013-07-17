@@ -7,7 +7,7 @@
 set history=1000
 
 set showcmd     "show incomplete cmds down the bottom
-set showmode    "show current mode down the bottom
+set noshowmode    "show current mode down the bottom
 
 set undodir=~/.vim_undodir
 set undofile
@@ -28,9 +28,9 @@ imap <C-f> <Right>
 imap <C-d> <Del>
 imap <M-d> <C-o>df<space>
 inoremap <M-f> <S-Right>
-inoremap <M-b> <S-Left>
 nnoremap <D-k> :bd<CR>
-inoremap <D-k> <C-o>:bd<CR>
+inoremap <M-b> <S-Left>
+"inoremap <D-k> <C-o>:bd<CR>
 imap <D-d> <Esc>ddi
 imap <C-k> <C-o>d$
 
@@ -39,8 +39,8 @@ nmap <D-/> <Plug>NERDCommenterToggle
 imap <D-/> <C-o><Plug>NERDCommenterToggle
 
 " Movements for Visual Mode
-vmap <C-p> gk
-vmap <C-n> gj
+"vmap <C-p> gk
+"vmap <C-n> gj
 vmap <C-a> g0
 vmap <C-e> g$
 vmap <C-b> <Left>
@@ -73,6 +73,11 @@ autocmd FileType erb let b:surround_61 = "<%= \r %>"
 " From: http://vim.wikia.com/wiki/Cycle_through_buffers_including_hidden_buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+"nnoremap <Tab> :BufSurfForward<CR>
+"nnoremap <S-Tab> :BufSurfBack<CR>
+
+" so I dont'd need to put a ! after :bnext
+set hidden
 
 " Stop Buffergator changing the window size
 let g:buffergator_autoexpand_on_split = 0
@@ -80,3 +85,10 @@ let g:buffergator_autoexpand_on_split = 0
 " Remove tralling whitespaces on saving
 autocmd BufWritePre * :%s/\s\+$//e
 
+nnoremap ! :Clam<space>
+vnoremap ! :ClamVisual<space>
+
+let NERDTreeQuitOnOpen = 1
+nmap ,r :NERDTreeFind<CR>
+" disable left scrollbar that apears when NERDTree is invoked
+set go-=L

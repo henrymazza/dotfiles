@@ -1,3 +1,8 @@
-set guifont=inconsolata-dz:h17
+set invmmta
+set macmeta
+
+set guifont=inconsolata-dz\ for\ Powerline:h18
+let g:Powerline_symbols = 'fancy'
+
 colorscheme ir_black
 highlight SignColumn guibg=#000000

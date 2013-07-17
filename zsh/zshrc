@@ -10,6 +10,7 @@ ZSH_THEME="sorin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias digg="dig +nocmd any +multiline +noall +answer"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -39,6 +40,19 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(rbenv init -)"
 # Customize to your needs...
-export PATH=./bin:/Users/HMz/.rbenv/bin:/Users/HMz/.rbenv/shims:/Users/HMz/bin:/usr/local/sbin:/Users/HMz/.rbenv/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
+export PATH=./bin:/Users/HMz/.rbenv/bin:/Users/HMz/.rbenv/shims:/Users/HMz/bin:/usr/local/sbin:/Users/HMz/.rbenv/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin/
 
 setopt extendedglob
+
+# down with autocorrect
+unsetopt correct_all
+
+# from the old bashrc
+export GIT_EDITOR="mate --name 'Git Commit Message' -w -l 1"
+export EDITOR='mvim -f'
+export ALTERNATE_EDITOR="mate -w"
+
+# That makefile for arduino stuff
+export ARDUINO_DIR=/Applications/Arduino.app/Contents/Resources/Java
+export ARDMK_DIR=/usr/local/CrossPack-AVR
+
