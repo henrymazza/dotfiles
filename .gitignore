@@ -4,8 +4,8 @@ chef*/chef/checksums
 emacs*/emacs-backup/**
 emacs*/emacs_backups/**
 emacs*/emacs_autosaves/**
-ruby/pry_history
-postgres/psql_history
-local/local/share/autojump
-bash/bash_history
 ssh
+emacs.disabled/eshell/history
+
+/* Don't persist sensitive info! */
+**/*history
