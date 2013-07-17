@@ -10,42 +10,56 @@
 [submodule "vim/janus/gitgutter"]
 	path = vim/janus/gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+  ignore = dirty
 [submodule "vim/janus/surround"]
 	path = vim/janus/surround
 	url = https://github.com/tpope/vim-surround.git
+  ignore = dirty
 [submodule "vim/janus/css-color"]
 	path = vim/janus/css-color
 	url = https://github.com/skammer/vim-css-color.git
+  ignore = dirty
 [submodule "vim/janus/delimitMate"]
 	path = vim/janus/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+  ignore = dirty
 [submodule "vim/janus/yankring"]
 	path = vim/janus/yankring
 	url = https://github.com/vim-scripts/YankRing.vim.git
+  ignore = dirty
 [submodule "vim/janus/clam"]
 	path = vim/janus/clam
 	url = https://github.com/sjl/clam.vim.git
+  ignore = dirty
 [submodule "janus/gundo"]
 	path = vim/janus/gundo
 	url = https://github.com/sjl/gundo.vim.git
+  ignore = dirty
 [submodule "janus/powerline"]
 	path = vim/janus/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+  ignore = dirty
 [submodule "vim/janus/ragtag"]
 	path = vim/janus/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
+  ignore = dirty
 [submodule "vim/janus/bufsurf"]
 	path = vim/janus/bufsurf
 	url = https://github.com/ton/vim-bufsurf.git
+  ignore = dirty
 [submodule "vim/janus/gitignore"]
 	path = vim/janus/gitignore
 	url = https://github.com/sebastiangeiger/gitignore.vim.git
+  ignore = dirty
 [submodule "vim/janus/swapit"]
 	path = vim/janus/swapit
 	url = https://github.com/mjbrownie/swapit.git
+  ignore = dirty
 [submodule "vim/janus/elixir"]
 	path = vim/janus/elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
+  ignore = dirty
 [submodule "vim/janus/powerline"]
 	path = vim/janus/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+  ignore = dirty
