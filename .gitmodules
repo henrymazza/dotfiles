@@ -19,3 +19,30 @@
 [submodule "vim/janus/delimitMate"]
 	path = vim/janus/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule "vim/janus/yankring"]
+	path = vim/janus/yankring
+	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "vim/janus/clam"]
+	path = vim/janus/clam
+	url = https://github.com/sjl/clam.vim.git
+[submodule "janus/gundo"]
+	path = vim/janus/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "janus/powerline"]
+	path = vim/janus/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/janus/ragtag"]
+	path = vim/janus/ragtag
+	url = https://github.com/tpope/vim-ragtag.git
+[submodule "vim/janus/bufsurf"]
+	path = vim/janus/bufsurf
+	url = https://github.com/ton/vim-bufsurf.git
+[submodule "vim/janus/gitignore"]
+	path = vim/janus/gitignore
+	url = https://github.com/sebastiangeiger/gitignore.vim.git
+[submodule "vim/janus/swapit"]
+	path = vim/janus/swapit
+	url = https://github.com/mjbrownie/swapit.git
+[submodule "vim/janus/elixir"]
+	path = vim/janus/elixir
+	url = https://github.com/elixir-lang/vim-elixir.git

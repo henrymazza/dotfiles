@@ -1,4 +1,0 @@
-SELECT MONTH(T030_data_cadastro), YEAR(T030_data_cadastro), count(*) FROM tbl030_pessoas
-        GROUP BY MONTH(T030_data_cadastro), YEAR(T030_data_cadastro)
-        ORDER BY YEAR(T030_data_cadastro), MONTH(T030_data_cadastro)
-          

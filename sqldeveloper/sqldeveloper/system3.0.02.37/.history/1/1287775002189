@@ -1,3 +1,0 @@
-SELECT name 
-FROM dbo.sysobjects 
-WHERE xtype = 'U' and name like '%ncm%';

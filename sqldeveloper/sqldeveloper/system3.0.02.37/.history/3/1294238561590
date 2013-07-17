@@ -1,1 +1,0 @@
-SELECT COUNT(*) FROM [tbl123_devolucao_cliente] WHERE ([tbl123_devolucao_cliente].[T123_data] = CONVERT(DATETIME, '2010-01-04', 127))
