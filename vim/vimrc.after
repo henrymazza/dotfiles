@@ -28,7 +28,7 @@ imap <C-f> <Right>
 imap <C-d> <Del>
 imap <M-d> <C-o>df<space>
 inoremap <M-f> <S-Right>
-nnoremap <D-k> :bd<CR>
+nnoremap <C-k> :bd<CR>
 inoremap <M-b> <S-Left>
 "inoremap <D-k> <C-o>:bd<CR>
 imap <D-d> <Esc>ddi
