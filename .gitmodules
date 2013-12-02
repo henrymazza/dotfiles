@@ -63,6 +63,3 @@
 [submodule "vim/janus/colorpicker"]
 	path = vim/janus/colorpicker
 	url = https://github.com/iandoe/vim-osx-colorpicker
-[submodule "vim/janus/ag"]
-	path = vim/janus/ag
-	url = https://github.com/rking/ag.vim
