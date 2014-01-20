@@ -60,3 +60,6 @@
 	path = vim/janus/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
 	ignore = dirty
+[submodule "vim/janus/colorpicker"]
+	path = vim/janus/colorpicker
+	url = https://github.com/iandoe/vim-osx-colorpicker
