@@ -40,10 +40,6 @@
 	path = vim/janus/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
 	ignore = dirty
-[submodule "vim/janus/bufsurf"]
-	path = vim/janus/bufsurf
-	url = https://github.com/ton/vim-bufsurf.git
-	ignore = dirty
 [submodule "vim/janus/gitignore"]
 	path = vim/janus/gitignore
 	url = https://github.com/sebastiangeiger/gitignore.vim.git
@@ -63,3 +59,12 @@
 [submodule "vim/janus/colorpicker"]
 	path = vim/janus/colorpicker
 	url = https://github.com/iandoe/vim-osx-colorpicker
+[submodule "vim/janus/bufmru"]
+	path = vim/janus/bufmru
+	url = https://github.com/vim-scripts/bufmru.vim.git
+[submodule "vim/janus/dash"]
+	path = vim/janus/dash
+	url = https://github.com/rizzatti/dash.vim.git
+[submodule "vim/janus/funcoo"]
+	path = vim/janus/funcoo
+	url = https://github.com/rizzatti/funcoo.vim.git
