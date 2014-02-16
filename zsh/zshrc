@@ -48,7 +48,7 @@ setopt extendedglob
 unsetopt correct_all
 
 # from the old bashrc
-export GIT_EDITOR="mate --name 'Git Commit Message' -w -l 1"
+export GIT_EDITOR="mvim -f"
 export EDITOR='mvim -f'
 export ALTERNATE_EDITOR="mate -w"
 
