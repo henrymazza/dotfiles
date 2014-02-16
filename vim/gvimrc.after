@@ -1,5 +1,6 @@
 set invmmta
 set macmeta
+set showtabline=0
 
 set guifont=inconsolata-dz\ for\ Powerline:h18
 let g:Powerline_symbols = 'fancy'
