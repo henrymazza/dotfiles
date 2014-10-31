@@ -68,3 +68,9 @@
 [submodule "vim/janus/funcoo"]
 	path = vim/janus/funcoo
 	url = https://github.com/rizzatti/funcoo.vim.git
+[submodule "vim/janus/unite"]
+	path = vim/janus/unite
+	url = https://github.com/Shougo/unite.vim.git
+[submodule "vim/janus/vimproc"]
+	path = vim/janus/vimproc
+	url = https://github.com/Shougo/vimproc.vim.git
