@@ -9,3 +9,4 @@ emacs.disabled/eshell/history
 
 /* Don't persist sensitive info! */
 **/*history
+zsh/zsh-update
