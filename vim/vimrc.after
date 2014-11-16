@@ -118,5 +118,9 @@ endif
 
 let g:yankring_history_dir = '~/.vim/_temp'
 
-let g:bufmru_switchkey = "<Space>"
+map <leader>b :Bufstop<CR>             " get a visual on the buffers
+map <leader>a :BufstopModeFast<CR>     " a command for quick switching
+map <tab>   :BufstopBack<CR>
+map <S-tab>   :BufstopForward<CR>
+let g:BufstopAutoSpeedToggle = 1       " now I can press ,3,3,3 to cycle the last 3 buffers
 

@@ -71,3 +71,6 @@
 [submodule "vim/janus/vimproc"]
 	path = vim/janus/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "vim/janus/bufstop"]
+	path = vim/janus/bufstop
+	url = https://github.com/mihaifm/bufstop.git
