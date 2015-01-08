@@ -74,3 +74,6 @@
 [submodule "vim/janus/bufstop"]
 	path = vim/janus/bufstop
 	url = https://github.com/mihaifm/bufstop.git
+[submodule "vim/janus/rails"]
+	path = vim/janus/rails
+	url = https://github.com/tpope/vim-rails.git
