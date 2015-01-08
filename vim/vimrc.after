@@ -30,13 +30,7 @@ imap <M-d> <C-o>df<space>
 inoremap <M-f> <S-Right>
 nnoremap <C-k> :bd<CR>
 inoremap <M-b> <S-Left>
-"inoremap <D-k> <C-o>:bd<CR>
-imap <D-d> <Esc>ddi
 imap <C-k> <C-o>d$
-
-" Janues puts a <CR> at the end, and it was driving me mad
-nmap <D-/> <Plug>NERDCommenterToggle
-imap <D-/> <C-o><Plug>NERDCommenterToggle
 
 " Movements for Visual Mode
 "vmap <C-p> gk
@@ -69,12 +63,6 @@ let g:PreviewBrowsers = "open -a Safari"
 " ERB surroundings for surround.vim
 autocmd FileType erb let b:surround_45 = "<% \r %>"
 autocmd FileType erb let b:surround_61 = "<%= \r %>"
-
-" From: http://vim.wikia.com/wiki/Cycle_through_buffers_including_hidden_buffers
-"nnoremap <Tab> :bnext<CR>
-"nnoremap <S-Tab> :bprevious<CR>
-"nnoremap <Tab> :BufSurfForward<CR>
-"nnoremap <S-Tab> :BufSurfBack<CR>
 
 " so I dont'd need to put a ! after :bnext
 set hidden
@@ -122,5 +110,6 @@ map <leader>b :Bufstop<CR>             " get a visual on the buffers
 map <leader>a :BufstopModeFast<CR>     " a command for quick switching
 map <tab>   :BufstopBack<CR>
 map <S-tab>   :BufstopForward<CR>
+let g:BufstopSpeedKeys = ["1", "2", "3", "4", "5", "6"]
+let g:BufstopLeader = ","
 let g:BufstopAutoSpeedToggle = 1       " now I can press ,3,3,3 to cycle the last 3 buffers
-

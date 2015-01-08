@@ -6,3 +6,18 @@ let g:Powerline_symbols = 'fancy'
 
 colorscheme ir_black
 highlight SignColumn guibg=#000000
+
+" Janus puts a <CR> at the end, and it was driving me mad
+nmap <D-/> <Plug>NERDCommenterToggle
+imap <D-/> <C-o><Plug>NERDCommenterToggle
+
+macmenu File.New\ Tab key=<nop>
+nmap <D-t> :CtrlP<CR>
+
+imap <D-d> <Esc>ddi
+
+" Janus puts a <CR> at the end, and it was driving me mad
+nmap <D-/> <Plug>NERDCommenterToggle
+imap <D-/> <C-o><Plug>NERDCommenterToggle
+
+
