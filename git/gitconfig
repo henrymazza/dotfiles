@@ -50,7 +50,7 @@
 [difftool "Kaleidoscope"]
   cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [apply]
-  whitespace=fix  
+  whitespace=fix
 [rerere]
   enabled = true
 [difftool "sourcetree"]

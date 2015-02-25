@@ -77,3 +77,6 @@
 [submodule "vim/janus/rails"]
 	path = vim/janus/rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/janus/ember-script"]
+	path = vim/janus/ember-script
+	url = https://github.com/heartsentwined/vim-ember-script.git
