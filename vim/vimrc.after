@@ -113,3 +113,5 @@ map <S-tab>   :BufstopForward<CR>
 let g:BufstopSpeedKeys = ["1", "2", "3", "4", "5", "6"]
 let g:BufstopLeader = ","
 let g:BufstopAutoSpeedToggle = 1       " now I can press ,3,3,3 to cycle the last 3 buffers
+
+runtime macros/matchit.vim
