@@ -1,5 +1,5 @@
 [user]
-	email = fabio.mazarotto@me.com
+	email = fabio@mazarotto.me
 	name = Fabio Mazarotto
 [color]
   ui = auto
@@ -17,7 +17,7 @@
   changed = green
   untracked = cyan
 [core]
-	excludesfile = /Users/HMz/.gitignore
+	excludesfile = /Users/fabiomazarotto/.gitignore_global
 	quotepath = false
 [alias]
   s = status -sb
