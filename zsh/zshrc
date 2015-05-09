@@ -11,6 +11,7 @@ ZSH_THEME="sorin"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias digg="dig +nocmd any +multiline +noall +answer"
+alias gitt="gittower ."
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
