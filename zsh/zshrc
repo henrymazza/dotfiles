@@ -59,3 +59,5 @@ export ARDMK_DIR=/usr/local/CrossPack-AVR
 
 
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
