@@ -33,3 +33,5 @@ options.inspect
 continue
 exit
 exit
+ls
+exit
