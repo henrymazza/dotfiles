@@ -31,19 +31,20 @@ values."
      git
      colors
      ruby-on-rails
+     javascript
      uninpaired
      evil-commentary
      evil-cleverparens
      vinegar
      themes-megapack
-     ;; markdown
+     markdown
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
+     spell-checking
+     syntax-checking
+     version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -117,7 +118,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Inconsolata LGC"
                                :size 18
                                :weight normal
                                :width normal
@@ -302,9 +303,9 @@ Otherwise, call `backward-kill-word'."
   (setq css-indent-offset n) ; css-mode
 
   )
+(my-setup-indent 2)
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
-
 
 
 
