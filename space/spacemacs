@@ -288,7 +288,7 @@ Otherwise, call `backward-kill-word'."
 ;; Coffeescript specific tabbing requirements
 (custom-set-variables '(coffee-tab-width 2))
 
-(defun my-setup-indent (n)
+(defun setup-indent (n)
   ;; java/c/c++
   (setq c-basic-offset n)
   ;; web development
@@ -303,14 +303,34 @@ Otherwise, call `backward-kill-word'."
   (setq css-indent-offset n) ; css-mode
 
   )
-(my-setup-indent 2)
+(setup-indent 2)
 
+;; Unix Style C-h
+(global-set-key (kbd "C-?") 'help-command)
+(global-set-key (kbd "M-?") 'mark-paragraph)
 (global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "M-h") 'backward-kill-word)
 
+;; C-w to kill word backwards
+(defun kill-region-or-backward-kill-word (&optional arg region)
+  "`kill-region' if the region is active, otherwise `backward-kill-word'"
+  (interactive
+   (list (prefix-numeric-value current-prefix-arg) (use-region-p)))
+  (if region
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-word arg)))
+(global-set-key (kbd "C-w") 'kill-region-or-backward-kill-word)
 
+;; Kill region on paste
+(delete-selection-mode 1)
 
-
-
+;; Transparency by default
+(set-frame-parameter (selected-frame) 'alpha
+                     (cons dotspacemacs-active-transparency
+                           dotspacemacs-inactive-transparency))
+;; (require 'rainbow-mode)
+;; (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
+;; (add-hook 'html-mode-hook (lambda () (rainbow-mode 1)))
 
 
 
