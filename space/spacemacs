@@ -45,6 +45,7 @@ values."
      ;; spell-checking
      ;; syntax-checking
      version-control
+     auto-completion
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -68,7 +69,7 @@ values."
   ;; spacemacs settings.
   (setq-default
    ;; Default theme
-   dotspacemacs-default-theme 'ir-black
+   dotspacemacs-default-theme 'hc-zenburn
    ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
    ;; possible. Set it to nil if you have no way to use HTTPS in your
    ;; environment, otherwise it is strongly recommended to let it set to t.
@@ -113,7 +114,7 @@ values."
                          solarized-dark
                          leuven
                          monokai
-                         zenburn)
+                         hc-zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -242,7 +243,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'all 
    ))
 
 (defun dotspacemacs/user-init ()
@@ -278,6 +279,7 @@ you should place you code here."
   ;; (require 'rainbow-mode)
   (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
   (add-hook 'html-mode-hook (lambda () (rainbow-mode 1)))
+  (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
 
   ;; Unix Style C-h
   (global-set-key (kbd "C-?") 'help-command) ;; this isn't working...
@@ -287,6 +289,8 @@ you should place you code here."
 
   ;; disable word wrap
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+
+  (spacemacs/toggle-transparency)
 
   )
 
@@ -344,8 +348,3 @@ you should place you code here."
 
 ;; Kill region on paste
 (delete-selection-mode 1)
-
-;; Transparency by default
-(set-frame-parameter (selected-frame) 'alpha
-                     (cons dotspacemacs-active-transparency
-                           dotspacemacs-inactive-transparency))
