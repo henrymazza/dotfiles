@@ -337,6 +337,9 @@ Otherwise, call `backward-kill-word'."
 (set-frame-position (selected-frame) 0 -24)
 (setq frame-title-format "")
 
+;; spacemacs as default git editor
+(global-git-commit-mode t)
+
 ;; (require 'rainbow-mode)
 ;; (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
 ;; (add-hook 'html-mode-hook (lambda () (rainbow-mode 1)))
