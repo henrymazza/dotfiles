@@ -309,10 +309,13 @@ Otherwise, call `backward-kill-word'."
 (define-key evil-normal-state-map (kbd "C-k") 'kill-this-buffer)
 
 ;; Unix Style C-h
-(global-set-key (kbd "C-?") 'help-command) ;; this isn't working... 
+(global-set-key (kbd "C-?") 'help-command) ;; this isn't working...
 (global-set-key (kbd "M-?") 'mark-paragraph)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
+
+;; clear whitespaces upon save
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 (define-key evil-normal-state-map (kbd "<tab>") 'spacemacs/previous-useful-buffer)
 (define-key evil-normal-state-map (kbd "<S-tab>") 'spacemacs/next-useful-buffer)
@@ -346,16 +349,3 @@ Otherwise, call `backward-kill-word'."
 ;; (require 'rainbow-mode)
 ;; (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
 ;; (add-hook 'html-mode-hook (lambda () (rainbow-mode 1)))
-
-
-
-
-
-
-
-
-
-
-
-
-
