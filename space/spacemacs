@@ -305,6 +305,9 @@ Otherwise, call `backward-kill-word'."
   )
 (setup-indent 2)
 
+;; my old pal C-k
+(define-key evil-normal-state-map (kbd "C-k") 'kill-this-buffer)
+
 ;; Unix Style C-h
 (global-set-key (kbd "C-?") 'help-command) ;; this isn't working... 
 (global-set-key (kbd "M-?") 'mark-paragraph)
