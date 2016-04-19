@@ -1,3 +1,6 @@
 --ignore-dir=vendor/ruby
 --ignore-dir=log
 --ignore-dir=tmp
+--ignore-dir=node_modules
+--ignore-dir=bower_components
+--ignore-dir=dist
