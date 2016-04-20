@@ -38,6 +38,7 @@ values."
      vinegar
      themes-megapack
      markdown
+     cb-yasnippet
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -265,8 +266,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
 
-  (define-key evil-normal-state-map (kbd "<tab>") 'spacemacs/previous-useful-buffer)
-  (define-key evil-normal-state-map (kbd "<S-tab>") 'spacemacs/next-useful-buffer)
+  (define-key evil-normal-state-map (kbd "<S-tab>") 'spacemacs/previous-useful-buffer)
+  (define-key evil-normal-state-map (kbd "<tab>") 'spacemacs/next-useful-buffer)
   (define-key evil-normal-state-map (kbd "C-h") 'help-command)
   (define-key evil-normal-state-map (kbd "C-a") 'rotate-word-at-point)
 
