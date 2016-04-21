@@ -4,8 +4,8 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export GIT_EDITOR="mvim -f"
-export EDITOR='mvim -f'
-export ALTERNATE_EDITOR='vim -f'
+#export EDITOR='mvim -f'
+export ALTERNATE="mvim -f"
 
 # if [[ "$TERM_PROGRAM" == "DTerm" ]]; then
 #   # these are only executed in DTerm shells
