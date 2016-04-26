@@ -23,8 +23,8 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
-     ;; better-defaults
+     auto-completion
+     better-defaults
      emacs-lisp
      osx
      html
@@ -45,8 +45,15 @@ values."
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
+     ruby-on-rails
      version-control
-     auto-completion
+     (shell :variables
+            shell-default-shell 'shell
+            shell-default-height 30
+            shell-default-position 'bottom)
+     ;; org
+     ;; spell-checking
+     ;; syntax-checking
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -290,6 +297,7 @@ you should place you code here."
   (global-set-key (kbd "M-?") 'mark-paragraph)
   (global-set-key (kbd "C-h") 'delete-backward-char)
   (global-set-key (kbd "M-h") 'backward-kill-word)
+  (global-set-key (kbd "C-c") 'evil-force-normal-state)
 
   ;; disable word wrap
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
@@ -307,63 +315,64 @@ you should place you code here."
   (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
     (make-directory (concat spacemacs-cache-directory "undo")))
 
+  (custom-set-variables
+  '(evil-shift-width 2))
+
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 2)
+  (setq-default c-basic-offset 2)
+  (setq indent-line-function 'insert-tab)
+
+  ;; Coffeescript specific tabbing requirements
+  (custom-set-variables '(coffee-tab-width 2))
+
+  (defun setup-indent (n)
+    ;; java/c/c++
+    (setq c-basic-offset n)
+    ;; web development
+    (setq coffee-tab-width n) ; coffeescript
+    (setq javascript-indent-level n) ; javascript-mode
+    (setq js-indent-level n) ; js-mode
+    (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+    (setq html-mode-markup-indent-offset n) ; web-mode, html tag in html file
+    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+    (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+    (setq css-indent-offset n) ; css-mode
+
+    )
+  (setup-indent 2)
+
+  ;; C-w to kill word backwards
+  (defun kill-region-or-backward-kill-word (&optional arg region)
+    "`kill-region' if the region is active, otherwise `backward-kill-word'"
+    (interactive
+     (list (prefix-numeric-value current-prefix-arg) (use-region-p)))
+    (if region
+        (kill-region (region-beginning) (region-end))
+      (backward-kill-word arg)))
+  (global-set-key (kbd "C-w") 'kill-region-or-backward-kill-word)
+
+  ;; Kill region on paste
+  (delete-selection-mode 1)
+
+  ;; set rainbow-mode
+  (use-package rainbow-mode
+    :defer t
+    :init
+    (setq rainbow-html-colors-major-mode-list '(css-mode
+                                                html-mode
+                                                less-css-mode
+                                                nxml-mode
+                                                php-mode
+                                                sass-mode
+                                                scss-mode
+                                                web-mode
+                                                xml-mode))
+    (dolist (mode rainbow-html-colors-major-mode-list)
+      (add-hook (intern (format "%s-hook" mode)) 'rainbow-mode)))
+
   )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-
-;;(defun kill-region-or-backward-word ()
-;;  "If the region is active and non-empty, call `kill-region'.
-;;Otherwise, call `backward-kill-word'."
-;;  (interactive)
-;;  (call-interactively
-;;   (if (use-region-p) 'kill-region 'backward-kill-word)))
-
-;; (require 'rainbow-mode)
-;;   (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
-;;   (add-hook 'html-mode-hook (lambda () (rainbow-mode 1)))
-
-(custom-set-variables
- '(evil-shift-width 2))
-
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq-default c-basic-offset 2)
-(setq indent-line-function 'insert-tab)
-
-;; Coffeescript specific tabbing requirements
-(custom-set-variables '(coffee-tab-width 2))
-
-(defun setup-indent (n)
-  ;; java/c/c++
-  (setq c-basic-offset n)
-  ;; web development
-  (setq coffee-tab-width n) ; coffeescript
-  (setq javascript-indent-level n) ; javascript-mode
-  (setq js-indent-level n) ; js-mode
-  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
-  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-  (setq html-mode-markup-indent-offset n) ; web-mode, html tag in html file
-  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
-  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
-  (setq css-indent-offset n) ; css-mode
-
-  )
-(setup-indent 2)
-
-;; C-w to kill word backwards
-(defun kill-region-or-backward-kill-word (&optional arg region)
-  "`kill-region' if the region is active, otherwise `backward-kill-word'"
-  (interactive
-   (list (prefix-numeric-value current-prefix-arg) (use-region-p)))
-  (if region
-      (kill-region (region-beginning) (region-end))
-    (backward-kill-word arg)))
-(global-set-key (kbd "C-w") 'kill-region-or-backward-kill-word)
-
-;; Kill region on paste
-(delete-selection-mode 1)
-
 
 ;;;;;;;;;;;;;;;
 ;; Rotate Text
@@ -373,6 +382,7 @@ you should place you code here."
   '(("true" "false")
     ("width" "height")
     ("if" "unless")
+    ("relative" "absolute" "fixed" "static" "sticky")
     ("aliceblue" "antiquewhite" "aqua" "aquamarine" "azure" "beige" "bisque" "black" "blanchedalmond" "blue" "blueviolet" "brown" "burlywood" "cadetblue" "chartreuse" "chocolate" "coral" "cornflowerblue" "cornsilk" "crimson" "cyan" "darkblue" "darkcyan" "darkgoldenrod" "darkgray" "darkgrey" "darkgreen" "darkkhaki" "darkmagenta" "darkolivegreen" "darkorange" "darkorchid" "darkred" "darksalmon" "darkseagreen" "darkslateblue" "darkslategray" "darkslategrey" "darkturquoise" "darkviolet" "deeppink" "deepskyblue" "dimgray" "dimgrey" "dodgerblue" "firebrick" "floralwhite" "forestgreen" "fuchsia" "gainsboro" "ghostwhite" "gold" "goldenrod" "gray" "grey" "green" "greenyellow" "honeydew" "hotpink" "indianred" "indigo" "ivory" "khaki" "lavender" "lavenderblush" "lawngreen" "lemonchiffon" "lightblue" "lightcoral" "lightcyan" "lightgoldenrodyellow" "lightgray" "lightgrey" "lightgreen" "lightpink" "lightsalmon" "lightseagreen" "lightskyblue" "lightslategray" "lightslategrey" "lightsteelblue" "lightyellow" "lime" "limegreen" "linen" "magenta" "maroon" "mediumaquamarine" "mediumblue" "mediumorchid" "mediumpurple" "mediumseagreen" "mediumslateblue" "mediumspringgreen" "mediumturquoise" "mediumvioletred" "midnightblue" "mintcream" "mistyrose" "moccasin" "navajowhite" "navy" "oldlace" "olive" "olivedrab" "orange" "orangered" "orchid" "palegoldenrod" "palegreen" "paleturquoise" "palevioletred" "papayawhip" "peachpuff" "peru" "pink" "plum" "powderblue" "purple" "rebeccapurple" "red" "rosybrown" "royalblue" "saddlebrown" "salmon" "sandybrown" "seagreen" "seashell" "sienna" "silver" "skyblue" "slateblue" "slategray" "slategrey" "snow" "springgreen" "steelblue" "tan" "teal" "thistle" "tomato" "turquoise" "violet" "wheat" "white" "whitesmoke" "yellow" "yellowgreen")
     ("yes" "no"))
   "List of text rotation sets.")
@@ -462,3 +472,29 @@ Example:
       (rotate-region (save-excursion (forward-word -1) (point))
          (point))
     (indent-for-tab-command)))
+
+(defun spacemacs//frame-title-format ()
+  "Return frame title with current project name, where applicable."
+  (let ((file buffer-file-name))
+    (if file
+        (concat (abbreviate-file-name file)
+                (when (and (bound-and-true-p projectile-mode)
+                           (projectile-project-p))
+                  (format " [%s]" (projectile-project-name))))
+      "%b")))
+
+(when (display-graphic-p)
+  (setq frame-title-format '((:eval (spacemacs//frame-title-format)))))
+
+;; function to clear read-only shell buffers
+(defun clear-comint-buffer ()
+  (interactive)
+  (let ((old-max comint-buffer-maximum-size))
+    (setq comint-buffer-maximum-size 0)
+    (comint-truncate-buffer)
+    (setq comint-buffer-maximum-size old-max)
+    (goto-char (point-max))))
+
+(add-hook 'comint-mode-hook
+          (function (lambda ()
+                      (local-set-key (kbd "s-k") 'clear-comint-buffer))))
