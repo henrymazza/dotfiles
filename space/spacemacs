@@ -342,6 +342,22 @@ you should place you code here."
   ;; Kill region on paste
   (delete-selection-mode 1)
 
+  ;; set rainbow-mode
+  (use-package rainbow-mode
+    :defer t
+    :init
+    (setq rainbow-html-colors-major-mode-list '(css-mode
+                                                html-mode
+                                                less-css-mode
+                                                nxml-mode
+                                                php-mode
+                                                sass-mode
+                                                scss-mode
+                                                web-mode
+                                                xml-mode))
+    (dolist (mode rainbow-html-colors-major-mode-list)
+      (add-hook (intern (format "%s-hook" mode)) 'rainbow-mode)))
+
   )
 
 ;;;;;;;;;;;;;;;
@@ -351,6 +367,7 @@ you should place you code here."
 (defvar rotate-text-rotations
   '(("true" "false")
     ("width" "height")
+    ("relative" "absolute" "fixed" "static" "sticky")
     ("aliceblue" "antiquewhite" "aqua" "aquamarine" "azure" "beige" "bisque" "black" "blanchedalmond" "blue" "blueviolet" "brown" "burlywood" "cadetblue" "chartreuse" "chocolate" "coral" "cornflowerblue" "cornsilk" "crimson" "cyan" "darkblue" "darkcyan" "darkgoldenrod" "darkgray" "darkgrey" "darkgreen" "darkkhaki" "darkmagenta" "darkolivegreen" "darkorange" "darkorchid" "darkred" "darksalmon" "darkseagreen" "darkslateblue" "darkslategray" "darkslategrey" "darkturquoise" "darkviolet" "deeppink" "deepskyblue" "dimgray" "dimgrey" "dodgerblue" "firebrick" "floralwhite" "forestgreen" "fuchsia" "gainsboro" "ghostwhite" "gold" "goldenrod" "gray" "grey" "green" "greenyellow" "honeydew" "hotpink" "indianred" "indigo" "ivory" "khaki" "lavender" "lavenderblush" "lawngreen" "lemonchiffon" "lightblue" "lightcoral" "lightcyan" "lightgoldenrodyellow" "lightgray" "lightgrey" "lightgreen" "lightpink" "lightsalmon" "lightseagreen" "lightskyblue" "lightslategray" "lightslategrey" "lightsteelblue" "lightyellow" "lime" "limegreen" "linen" "magenta" "maroon" "mediumaquamarine" "mediumblue" "mediumorchid" "mediumpurple" "mediumseagreen" "mediumslateblue" "mediumspringgreen" "mediumturquoise" "mediumvioletred" "midnightblue" "mintcream" "mistyrose" "moccasin" "navajowhite" "navy" "oldlace" "olive" "olivedrab" "orange" "orangered" "orchid" "palegoldenrod" "palegreen" "paleturquoise" "palevioletred" "papayawhip" "peachpuff" "peru" "pink" "plum" "powderblue" "purple" "rebeccapurple" "red" "rosybrown" "royalblue" "saddlebrown" "salmon" "sandybrown" "seagreen" "seashell" "sienna" "silver" "skyblue" "slateblue" "slategray" "slategrey" "snow" "springgreen" "steelblue" "tan" "teal" "thistle" "tomato" "turquoise" "violet" "wheat" "white" "whitesmoke" "yellow" "yellowgreen")
     ("yes" "no"))
   "List of text rotation sets.")
@@ -453,3 +470,16 @@ Example:
 
 (when (display-graphic-p)
   (setq frame-title-format '((:eval (spacemacs//frame-title-format)))))
+
+;; function to clear read-only shell buffers
+(defun clear-comint-buffer ()
+  (interactive)
+  (let ((old-max comint-buffer-maximum-size))
+    (setq comint-buffer-maximum-size 0)
+    (comint-truncate-buffer)
+    (setq comint-buffer-maximum-size old-max)
+    (goto-char (point-max))))
+
+(add-hook 'comint-mode-hook
+          (function (lambda ()
+                      (local-set-key (kbd "s-k") 'clear-comint-buffer))))
