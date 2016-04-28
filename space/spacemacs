@@ -1,20 +1,21 @@
-;; -*- mode: emacs-lisp -*-
-;; This file is loaded by Spacemacs at startup.
-;; It must be stored in your home directory.
+;; ;; -*- mode: emacs-lisp -*-
+;; ;; This file is loaded by Spacemacs at startup.
+;; ;; It must be stored in your home directory.
 
-(defun dotspacemacs/layers ()
-  "Configuration Layers declaration.
-You should not put any user code in this function besides modifying the variable
-values."
-  (setq-default
-   ;; Base distribution to use. This is a layer contained in the directory
-   ;; `+distribution'. For now available distributions are `spacemacs-base'
-   ;; or `spacemacs'. (default 'spacemacs)
-   dotspacemacs-distribution 'spacemacs
-   ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load. If it is the symbol `all' instead
+;; (defun dotspacemacs/layers ()
+;;   "Configuration Layers declaration.
+;; You should not put any user code in this function besides modifying the variable
+;; values."
+;;   (setq-default
+;;    ;; Base distribution to use. This is a layer contained in the directory
+;;    ;; `+distribution'. For now available distributions are `spacemacs-base'
+;;    ;; or `spacemacs'. (default 'spacemacs)
+;;    dotspacemacs-distribution 'spacemacs
+;;    ;; List of additional paths where to look for configuration layers.
+;;    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+;;    dotspacemacs-configuration-layer-path '()
+;;    ;; List of configuration layers to
+   load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
@@ -316,7 +317,7 @@ you should place you code here."
     (make-directory (concat spacemacs-cache-directory "undo")))
 
   (custom-set-variables
-  '(evil-shift-width 2))
+   '(evil-shift-width 2))
 
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 2)
@@ -371,6 +372,20 @@ you should place you code here."
                                                 xml-mode))
     (dolist (mode rainbow-html-colors-major-mode-list)
       (add-hook (intern (format "%s-hook" mode)) 'rainbow-mode)))
+
+  (setq-default create-lockfiles nil)
+
+  ;; auto-complete configs
+  (setq-default dotspacemacs-configuration-layers '(
+                                                    (auto-completion :variables
+                                                                     auto-completion-return-key-behavior 'complete
+                                                                     auto-completion-tab-key-behavior 'complete
+                                                                     auto-completion-complete-with-key-sequence nil
+                                                                     auto-completion-complete-with-key-sequence-delay 0.01
+                                                                     auto-completion-private-snippets-directory nil)
+                                                    ))
+
+  (add-hook 'coffee-mode-hook 'company-mode-on)
 
   )
 
