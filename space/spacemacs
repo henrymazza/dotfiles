@@ -407,6 +407,30 @@ you should place you code here."
    ;; documentation of it.
    (set-quit-char "C-c")
 
+   ;; Change Neotree default font
+   (with-eval-after-load 'neotree
+     (add-hook 'neotree-mode-hook
+               (lambda ()
+                 (custom-set-faces
+                  (set-face-attribute 'neo-button-face      nil :height 120)
+                  (set-face-attribute 'neo-file-link-face   nil :height 120)
+                  (set-face-attribute 'neo-dir-link-face    nil :height 120)
+                  (set-face-attribute 'neo-header-face      nil :height 120)
+                  (set-face-attribute 'neo-expand-btn-face  nil :height 120)
+                  )
+                 (spacemacs/scale-down-font)
+                 (spacemacs/scale-down-font)
+                 (spacemacs/scale-down-font)
+                 (spacemacs/scale-down-font)
+
+                 ))
+
+
+     )
+   (add-hook 'neo-change-root-hook
+             (lambda () (neo-buffer--with-resizable-window
+                         (let ((fit-window-to-buffer-horizontally t))
+                           (fit-window-to-buffer)))))
   )
 
 ;;;;;;;;;;;;;;;
