@@ -1,0 +1,10 @@
+[2016-10-04 12:12:23.811] [console_user_server] [info] version 0.90.46
+[2016-10-04 12:12:24.966] [console_user_server] [info] grabber_client_ is connected
+[2016-10-04 12:12:24.969] [console_user_server] [warning] parse error in /Users/HMz/.karabiner.d/configuration/karabiner.json: parse error - unexpected end of input
+[2016-10-04 12:12:24.969] [console_user_server] [info] configuration_core_ was loaded.
+[2016-10-04 12:12:26.040] [console_user_server] [info] system_preferences::values is updated.
+[2016-10-04 12:13:28.072] [console_user_server] [info] configuration_core_ was loaded.
+[2016-10-04 12:15:39.342] [console_user_server] [info] configuration_core_ was loaded.
+[2016-10-04 14:08:51.200] [console_user_server] [warning] parse error in /Users/HMz/dotfiles/karabiner/karabiner.d/configuration/karabiner.json: parse error - unexpected string literal; expected '}'
+[2016-10-04 14:08:53.435] [console_user_server] [warning] parse error in /Users/HMz/dotfiles/karabiner/karabiner.d/configuration/karabiner.json: parse error - unexpected string literal; expected '}'
+[2016-10-04 14:09:01.291] [console_user_server] [info] configuration_core_ was loaded.
