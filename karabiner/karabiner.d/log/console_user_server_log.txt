@@ -8,3 +8,52 @@
 [2016-10-04 14:08:51.200] [console_user_server] [warning] parse error in /Users/HMz/dotfiles/karabiner/karabiner.d/configuration/karabiner.json: parse error - unexpected string literal; expected '}'
 [2016-10-04 14:08:53.435] [console_user_server] [warning] parse error in /Users/HMz/dotfiles/karabiner/karabiner.d/configuration/karabiner.json: parse error - unexpected string literal; expected '}'
 [2016-10-04 14:09:01.291] [console_user_server] [info] configuration_core_ was loaded.
+[2016-10-17 14:03:03.346] [console_user_server] [info] version 0.90.46
+[2016-10-17 14:03:05.007] [console_user_server] [info] grabber_client_ is connected
+[2016-10-17 14:03:05.130] [console_user_server] [info] configuration_core_ was loaded.
+[2016-10-17 14:03:06.043] [console_user_server] [info] system_preferences::values is updated.
+[2016-10-17 14:03:42.861] [info] [console_user_server] version 0.90.52
+[2016-10-17 14:03:44.058] [info] [console_user_server] connection_manager::grabber_is_launched_callback
+[2016-10-17 14:03:44.474] [warning] [console_user_server] grabber socket is not found
+[2016-10-17 14:03:45.471] [info] [console_user_server] grabber_client_ is connected
+[2016-10-17 14:03:45.503] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-17 14:03:46.480] [info] [console_user_server] system_preferences::values is updated.
+[2016-10-17 14:29:32.422] [info] [console_user_server] version 0.90.52
+[2016-10-18 13:06:41.238] [warning] [console_user_server] grabber socket is not writable
+[2016-10-18 13:06:42.149] [warning] [console_user_server] grabber socket is not found
+[2016-10-18 13:06:43.155] [info] [console_user_server] grabber_client_ is connected
+[2016-10-18 13:06:43.206] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-18 13:06:44.225] [info] [console_user_server] system_preferences::values is updated.
+[2016-10-20 16:31:11.164] [info] [console_user_server] version 0.90.52
+[2016-10-21 11:31:16.017] [info] [console_user_server] grabber_client_ is connected
+[2016-10-21 11:31:16.228] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-21 11:31:17.219] [info] [console_user_server] system_preferences::values is updated.
+[2016-10-21 12:06:49.984] [info] [console_user_server] version 0.90.53
+[2016-10-21 12:06:50.720] [info] [console_user_server] connection_manager::grabber_is_launched_callback
+[2016-10-21 12:06:51.266] [warning] [console_user_server] grabber socket is not found
+[2016-10-21 12:06:52.169] [info] [console_user_server] grabber_client_ is connected
+[2016-10-21 12:06:52.197] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-21 12:06:53.196] [info] [console_user_server] system_preferences::values is updated.
+[2016-10-24 11:22:12.757] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-24 11:22:39.034] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-24 11:22:42.327] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-25 13:25:37.318] [info] [console_user_server] version 0.90.53
+[2016-10-25 13:25:44.536] [info] [console_user_server] grabber_client_ is connected
+[2016-10-25 13:25:44.834] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-25 13:25:45.706] [info] [console_user_server] system_preferences::values is updated.
+[2016-10-25 13:26:57.493] [info] [console_user_server] version 0.90.55
+[2016-10-25 13:26:58.307] [info] [console_user_server] connection_manager::grabber_is_launched_callback
+[2016-10-25 13:26:58.898] [warning] [console_user_server] grabber socket is not found
+[2016-10-25 13:26:59.903] [info] [console_user_server] grabber_client_ is connected
+[2016-10-25 13:26:59.932] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-25 13:27:00.929] [info] [console_user_server] system_preferences::values is updated.
+[2016-10-25 13:38:03.817] [info] [console_user_server] version 0.90.55
+[2016-10-25 13:49:22.102] [info] [console_user_server] grabber_client_ is connected
+[2016-10-25 13:49:22.140] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-25 13:49:23.207] [info] [console_user_server] system_preferences::values is updated.
+[2016-10-25 13:50:39.107] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-25 13:53:03.214] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-25 14:03:37.232] [info] [console_user_server] version 0.90.55
+[2016-10-25 14:03:38.625] [info] [console_user_server] grabber_client_ is connected
+[2016-10-25 14:03:38.627] [info] [console_user_server] configuration_core_ was loaded.
+[2016-10-25 14:03:39.690] [info] [console_user_server] system_preferences::values is updated.
