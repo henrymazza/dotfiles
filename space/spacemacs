@@ -47,6 +47,7 @@ values."
      spell-checking
      syntax-checking
      ruby-on-rails
+     lua
      version-control
      (shell :variables
             shell-default-shell 'shell
