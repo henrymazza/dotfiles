@@ -3,7 +3,7 @@ ctrl_table = {
     last_mods = {}
 }
 
-control_key_timer = hs.timer.delayed.new(0.15, function()
+control_key_timer = hs.timer.delayed.new(0.10, function()
     ctrl_table["send_escape"] = false
     -- log.i("timer fired")
     -- control_key_timer:stop()
