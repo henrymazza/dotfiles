@@ -14,39 +14,28 @@ end
 
 last_mods = {}
 
-sketchUpShowRestOfModel = hs.hotkey.bind({"ctrl"}, 's', function()
-    local app = hs.application.frontmostApplication()
-    local log=hs.logger.new('example','verbose')
+sketchUpSelect = hs.hotkey.bind({}, hs.keycodes.map['space'], function()
+  hs.application.frontmostApplication():selectMenuItem({"Tools", "Select"})
+end)
+sketchUpSelect:disable()
 
-    if app:title() == 'SketchUp' then
-      log.d('we are here!')
-      app:selectMenuItem({"View", "Component Edit", "Hide Rest of Model"})
-    else
-      hs.eventtap.keyStroke({"ctrl"}, "s")
-      log.d('we are thereeeee...e')
-      log.d(app:title())
-    end
+sketchUpShowRestOfModel = hs.hotkey.bind({"ctrl", "shift"}, 's', function()
+  hs.application.frontmostApplication():selectMenuItem({"View", "Component Edit", "Hide Rest of Model"})
 end)
 sketchUpShowRestOfModel:disable()
 
 appWatcher = hs.application.watcher.new(function(appName, eventType, obj)
-    local log=hs.logger.new('AppWatcher','verbose')
     if (eventType == hs.application.watcher.activated) and (appName == 'SketchUp') then
-      log.d('Activated SketchUp')
       sketchUpShowRestOfModel:enable()
+      sketchUpSelect:enable()
     end
     if (eventType == hs.application.watcher.deactivated) and (appName == 'SketchUp') then
-      log.d('DEActivated SketchUp')
       sketchUpShowRestOfModel:disable()
+      sketchUpSelect:disable()
     end
   end
 )
 appWatcher:start()
-
--- hs.window.filter.new('RubyMine')
--- :subscribe(hs.window.filter.windowFocused,function() reloadFxFromRubyMine:enable() end)
--- :subscribe(hs.window.filter.windowUnfocused,function() reloadFxFromRubyMine:disable() end)
-
 
 control_handler = function(evt)
   local new_mods = evt:getFlags()
