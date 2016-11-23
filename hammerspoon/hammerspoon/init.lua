@@ -15,7 +15,13 @@ end
 last_mods = {}
 
 sketchUpSelect = hs.hotkey.bind({}, hs.keycodes.map['space'], function()
-  hs.application.frontmostApplication():selectMenuItem({"Tools", "Select"})
+  if hs.window.focusedWindow():isStandard() then
+    hs.application.frontmostApplication():selectMenuItem({"Tools", "Select"})
+  else
+    hs.eventtap.event.newKeyEvent({}, string.lower('space'), true):post()
+    hs.timer.usleep(1000)
+    hs.eventtap.event.newKeyEvent({}, string.lower('space'), false):post()
+  end
 end)
 sketchUpSelect:disable()
 
@@ -23,6 +29,38 @@ sketchUpShowRestOfModel = hs.hotkey.bind({"ctrl", "shift"}, 's', function()
   hs.application.frontmostApplication():selectMenuItem({"View", "Component Edit", "Hide Rest of Model"})
 end)
 sketchUpShowRestOfModel:disable()
+
+local wf=hs.window.filter
+-- sketchup_wf.allowedWindowRoles = {AXStandardWindow=true,AXDialog=true}
+
+sketchup_wf = wf.new()
+sketchup_wf.allowedWindowRoles = {AXStandardWindow=true,AXDialog=true}
+sketchup_wf:setAppFilter('SketchUp')
+sketchup_wf:subscribe(wf.windowFocused,
+                      function(window, appName, eventName)
+                        log = hs.logger.new('jujuba', 'verbose')
+                        log.d(window:subrole(), appName, eventName)
+
+
+                        -- sketchUpShowRestOfModel:enable()
+                        -- sketchUpSelect:enable()
+                        -- log.d('unfocused')
+                        -- sketchUpShowRestOfModel:disable()
+                        -- sketchUpSelect:disable()
+                      end
+)
+sketchup_wf:subscribe(wf.windowUnfocused,
+                      function(window, appName, eventName)
+                        log = hs.logger.new('jujuba', 'verbose')
+                        log.d(window:isStandard(), appName, eventName)
+
+                        -- sketchUpShowRestOfModel:enable()
+                        -- sketchUpSelect:enable()
+                        -- log.d('unfocused')
+                        -- sketchUpShowRestOfModel:disable()
+                        -- sketchUpSelect:disable()
+                      end
+)
 
 appWatcher = hs.application.watcher.new(function(appName, eventType, obj)
     if (eventType == hs.application.watcher.activated) and (appName == 'SketchUp') then
