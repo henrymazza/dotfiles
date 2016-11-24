@@ -14,7 +14,7 @@ end
 
 last_mods = {}
 
-sketchUpSelect = hs.hotkey.bind({}, hs.keycodes.map['space'], function()
+sketchUpSelect = hs.hotkey.bind({'shift'}, hs.keycodes.map['space'], function()
   if hs.window.focusedWindow():isStandard() then
     hs.application.frontmostApplication():selectMenuItem({"Tools", "Select"})
   else

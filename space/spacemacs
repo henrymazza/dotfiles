@@ -46,7 +46,6 @@ values."
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     ruby-on-rails
      lua
      version-control
      (shell :variables
@@ -377,14 +376,19 @@ you should place you code here."
   (setq-default create-lockfiles nil)
 
   ;; auto-complete configs
-  (setq-default dotspacemacs-configuration-layers '(
-                                                    (auto-completion :variables
-                                                                     auto-completion-return-key-behavior 'complete
-                                                                     auto-completion-tab-key-behavior 'complete
-                                                                     auto-completion-complete-with-key-sequence nil
-                                                                     auto-completion-complete-with-key-sequence-delay 0.01
-                                                                     auto-completion-private-snippets-directory nil)
-                                                    ))
+  (setq-default dotspacemacs-configuration-layers
+                '(
+                  (auto-completion :variables
+                                   auto-completion-return-key-behavior 'complete
+                                   auto-completion-tab-key-behavior 'complete
+                                   auto-completion-complete-with-key-sequence nil
+                                   auto-completion-complete-with-key-sequence-delay 0.01
+                                   auto-completion-private-snippets-directory nil)
+                  (ruby :variables ruby-enable-enh-ruby-mode t)
+                  )
+
+
+                )
 
   (add-hook 'coffee-mode-hook 'company-mode-on)
 
@@ -410,6 +414,9 @@ you should place you code here."
 
    ;; Change Neotree default window width
    (setq neo-window-width 16)
+
+   ;; Always follow symlinks
+   (setq vc-follow-symlinks t)
 
    ;; Change Neotree default font
    (with-eval-after-load 'neotree
