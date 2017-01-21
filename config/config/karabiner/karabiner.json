@@ -1,4 +1,8 @@
 {
+    "global": {
+        "check_for_updates_on_startup": true,
+        "show_in_menu_bar": true
+    },
     "profiles": [
         {
             "devices": [
@@ -10,8 +14,7 @@
                         "product_id": 256,
                         "vendor_id": 2131
                     },
-                    "ignore": false,
-                    "keyboard_type": 0
+                    "ignore": false
                 }
             ],
             "fn_function_keys": {
@@ -31,8 +34,13 @@
             "name": "HHKB",
             "selected": true,
             "simple_modifications": {
+                "caps_lock": "left_control",
                 "escape": "grave_accent_and_tilde",
                 "grave_accent_and_tilde": "escape"
+            },
+            "virtual_hid_keyboard": {
+                "caps_lock_delay_milliseconds": 0,
+                "keyboard_type": "ansi"
             }
         }
     ]
