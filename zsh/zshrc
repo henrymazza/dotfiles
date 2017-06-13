@@ -39,9 +39,14 @@ plugins=(autojump bundler git osx gem brew rbenv)
 source ~/.git-prompt.sh
 source $ZSH/oh-my-zsh.sh
 
-eval "$(rbenv init -)"
 # Customize to your needs...
-export PATH=./bin:~/.rbenv/bin:~/.rbenv/shims:~/bin:/usr/local/sbin:~/.rbenv/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin
+export PATH=./bin:~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+
+# Postgres bins
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+
+# rbenv stuff
+eval "$(rbenv init -)"
 
 setopt extendedglob
 
@@ -51,12 +56,7 @@ unsetopt correct_all
 # from the old bashrc
 export GIT_EDITOR="mvim -f"
 export EDITOR='mvim -f'
-export ALTERNATE_EDITOR="mate -w"
-
-# That makefile for arduino stuff
-export ARDUINO_DIR=/Applications/Arduino.app/Contents/Resources/Java
-export ARDMK_DIR=/usr/local/CrossPack-AVR
-
+export ALTERNATE_EDITOR="em"
 
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
