@@ -439,7 +439,11 @@ you should place you code here."
    (setq neo-window-width 16)
 
    ;; Reveal file on Neotree
-   (global-set-key (kbd "s-r") 'neotree-find-file-in-project)
+   (global-set-key (kbd "s-r") 'neotree-find-project-root)
+
+   ;; When running ‘projectile-switch-project’ (C-c p p), ‘neotree’ will
+   ;; change root automatically.
+   (setq projectile-switch-project-action 'neotree-projectile-action)
 
    ;; Always follow symlinks
    (setq vc-follow-symlinks t)
