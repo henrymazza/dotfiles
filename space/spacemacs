@@ -40,7 +40,6 @@
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
 values."
-
   (setq-default
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
@@ -53,7 +52,6 @@ values."
   ;; of a list then all discovered layers will be installed.
   dotspacemacs-configuration-layers
   '(
-    yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -87,16 +85,6 @@ values."
      ;; org
      ;; spell-checking
      ;; syntax-checking
-
-     '(
-       (auto-completion :variables
-                        auto-completion-return-key-behavior 'complete
-                        auto-completion-tab-key-behavior 'complete
-                        auto-completion-complete-with-key-sequence nil
-                        auto-completion-complete-with-key-sequence-delay 0.01
-                        auto-completion-private-snippets-directory nil)
-       (ruby :variables ruby-enable-enh-ruby-mode t)
-       )
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -362,9 +350,6 @@ you should place you code here."
   ;; command-T
   (global-set-key (kbd "s-t") 'helm-projectile-find-file)
 
-  ;; Reveal in NeoTree
-  (global-set-key (kbd "s-r") 'neotree-find)
-
   ;; my old pal C-k
   (define-key evil-normal-state-map (kbd "C-k") 'kill-this-buffer)
 
@@ -388,11 +373,11 @@ you should place you code here."
   (spacemacs/toggle-transparency)
 
   ;; Preserve Undo History
-  (setq undo-tree-auto-save-history t
-        undo-tree-history-directory-alist
-        `(("." . ,(concat spacemacs-cache-directory "undo"))))
-  (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
-    (make-directory (concat spacemacs-cache-directory "undo")))
+  ;; (setq undo-tree-auto-save-history t
+  ;;       undo-tree-history-directory-alist
+  ;;       `(("." . ,(concat spacemacs-cache-directory "undo"))))
+  ;; (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
+  ;;   (make-directory (concat spacemacs-cache-directory "undo")))
 
   (custom-set-variables
    '(evil-shift-width 2))
@@ -460,15 +445,28 @@ you should place you code here."
 
   (setq-default create-lockfiles nil)
 
+  ;; auto-complete configs
+  (setq-default dotspacemacs-configuration-layers
+                '(
+                  (auto-completion :variables
+                                   auto-completion-return-key-behavior 'complete
+                                   auto-completion-tab-key-behavior 'complete
+                                   auto-completion-complete-with-key-sequence nil
+                                   auto-completion-complete-with-key-sequence-delay 0.01
+                                   auto-completion-private-snippets-directory nil)
+                  (ruby :variables ruby-enable-enh-ruby-mode t)
+                  )
+
+
+                )
+
   (add-hook 'coffee-mode-hook 'company-mode-on)
 
-  ;; this hides lots of functionalities, gonna try to use
-  ;; the default 'fd' to exit evil.
-  ;;; C-c as general purpose escape key sequence.
-  ;;; Trying to use evil-escape
-    (defun my-esc (prompt)
-      "Functionality for escaping generally.  Includes exiting Evil insert state and C-g binding. "
-      (cond
+   ;;; C-c as general purpose escape key sequence.
+   ;;;
+   (defun my-esc (prompt)
+     "Functionality for escaping generally.  Includes exiting Evil insert state and C-g binding. "
+     (cond
       ;; If we're in one of the Evil states that defines [escape] key, return [escape] so as
       ;; Key Lookup will use it.
       ((or (evil-insert-state-p)
@@ -503,6 +501,13 @@ you should place you code here."
          (neotree-find origin-buffer-file-name))))
 
    (global-set-key (kbd "s-r") 'neo-opens-outwards)
+
+   ;; Reveal file on Neotree
+   (global-set-key (kbd "s-r") 'neotree-find-project-root)
+
+   ;; When running ‘projectile-switch-project’ (C-c p p), ‘neotree’ will
+   ;; change root automatically.
+   (setq projectile-switch-project-action 'neotree-projectile-action)
 
    ;; Always follow symlinks
    (setq vc-follow-symlinks t)
@@ -583,7 +588,7 @@ If ROTATIONS are not given it defaults to `rotate-text-rotations'."
     ;; If we get this far, this should not occur:
     (error (format "Unknown rotation for %s" string))
   (let ((occurs-in-rots (member string (car rots))))
-     (if (null occurs-in-rots)
+    (if (null occurs-in-rots)
         ;; If we get this far, this should *never* occur:
         (error (format "Unknown rotation for %s" string))
     (if (null (cdr occurs-in-rots))
