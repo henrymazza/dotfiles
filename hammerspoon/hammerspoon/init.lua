@@ -101,7 +101,7 @@ end
 
 control_tap = hs.eventtap.new({12}, control_handler)
 
-control_tap:start()
+--control_tap:start()
 
 ---------------------------------
 
