@@ -661,8 +661,9 @@ Example:
 (defadvice neo-buffer--get-nodes
     (after neo-buffer--get-nodes-new-sorter activate)
   (setq ad-return-value
-        (let ((nodes ad-return-value)
-              (comparator (lambda (s1 s2) (string> (downcase s1)
+        (let
+            ((nodes ad-return-value)
+                     (comparator (lambda (s1 s2) (string< (downcase s1)
                                                    (downcase s2)))))
           (apply 'cons (mapcar (lambda (x) (sort (apply x (list nodes))
                                                  comparator))
@@ -671,7 +672,14 @@ Example:
 (setq neo-sort-hidden-last t)
 
 ;; (mapcar 'string-to-char "abc")
+;; (setq *my-string* "123 Buckle")
+;; (map 'string #'(lambda (c) (print c)) *my-string*)
 
 
-
-;; ("a" "b" "c")
+;; (message "%s"
+;;          (mapconcat 'identity
+;;                     (mapcar #'(lambda (str) (downcase str))
+;;                             '("123 lontras" "Barco" "aRQUIVO" "13 coisas"))
+;;                     " - "
+;;                     )
+;;          )

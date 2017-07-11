@@ -1,4 +1,6 @@
-hs.alert("  reloading config...  ")
+-- hs.loadSpoon('ColorPicker')
+
+-- spoon.ColorPicker.bindHotkeys({"ctrl", "shift", 's'})
 
 ctrl_table = {
     sends_escape = true,
