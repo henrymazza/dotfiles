@@ -129,10 +129,10 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Inconsolata LGC"
-                               :size 16
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+                              :size 16
+                              :weight normal
+                              :width normal
+                              :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -264,6 +264,17 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+  ;; Hide title bar
+  (setq initial-frame-alist '((undecorated . t)))
+
+  (when (window-system)
+    (set-frame-height (selected-frame) 40)
+    (set-frame-width (selected-frame) 80)
+    (set-frame-position (selected-frame) 480 150))                              
+  (setq default-frame-alist '((undecorated . t)))
+
+
 )
 
 (defun dotspacemacs/user-config ()
@@ -335,7 +346,7 @@ you should place you code here."
   (spacemacs/toggle-transparency)
 
   ;; neotree theme
-  (setq neo-theme 'ascii)
+  (setq neo-theme 'icons)
 
   ;; Preserve Undo History
   (setq undo-tree-auto-save-history t
@@ -461,6 +472,10 @@ you should place you code here."
    (setq neo-window-width 16)
 
    ;; Reveal file on Neotree
+   ;; (defun neo-opens-outwards ()
+   ;;   (neotree-find-project-root)
+   ;;   )
+
    (global-set-key (kbd "s-r") 'neotree-find-project-root)
 
    ;; When running ‘projectile-switch-project’ (C-c p p), ‘neotree’ will
@@ -603,8 +618,8 @@ Example:
                   (format " [%s]" (projectile-project-name))))
       "%b")))
 
-(when (display-graphic-p)
-  (setq frame-title-format '((:eval (spacemacs//frame-title-format)))))
+;; (when (display-graphic-p)
+;;   (setq frame-title-format '((:eval (spacemacs//frame-title-format)))))
 
 ;; function to clear read-only shell buffers
 (defun clear-comint-buffer ()

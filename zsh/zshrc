@@ -53,17 +53,11 @@ setopt extendedglob
 # down with autocorrect
 unsetopt correct_all
 
-# from the old bashrc
-export GIT_EDITOR="mvim -f"
-export EDITOR='mvim -f'
+# The Editors!
+export GIT_EDITOR="em"
+export EDITOR='em'
 export ALTERNATE_EDITOR="em"
 
-  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-PATH="/Users/HMz/perl5/bin${PATH+:}${PATH}"; export PATH;
-PERL5LIB="/Users/HMz/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/HMz/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/HMz/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/HMz/perl5"; export PERL_MM_OPT;
