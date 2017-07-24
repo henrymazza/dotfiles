@@ -2,6 +2,40 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+;; Pre Window Initialization code
+
+;; (when (window-system)
+;;  (set-default-font "Fira Code Light"))
+(let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+              (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+              (36 . ".\\(?:>\\)")
+              (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+              (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+              (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+              (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+              (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+              ;; (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+              (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+              (48 . ".\\(?:x[a-zA-Z]\\)")
+              (58 . ".\\(?:::\\|[:=]\\)")
+              (59 . ".\\(?:;;\\|;\\)")
+              (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+              (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+              (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+              (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+              (91 . ".\\(?:]\\)")
+              (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+              (94 . ".\\(?:=\\)")
+              (119 . ".\\(?:ww\\)")
+              (123 . ".\\(?:-\\)")
+              (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+              (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+              )
+            ))
+ (dolist (char-regexp alist)
+   (set-char-table-range composition-function-table (car char-regexp)
+                         `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -57,7 +91,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-  dotspacemacs-additional-packages '(key-chord json-snatcher json-reformat parent-mode gitignore-mode fringe-helper git-gutter+ pos-tip pkg-info epl flx goto-chg web-completion-data handlebars-mode all-the-icons-dired all-the-icons evil-nerd-commenter dired+ project-explorer yaml-mode org-mime ember-yasnippets ember-mode powerline rake inflections spinner markdown-mode multiple-cursors hydra projectile request haml-mode git-gutter flycheck magit magit-popup iedit paredit anzu diminish autothemer dash-functional tern inf-ruby bind-key yasnippet packed auto-complete company highlight smartparens bind-map f evil undo-tree git-commit with-editor helm helm-core popup async avy s dash js2-mode winum uuidgen unfill toc-org pug-mode osx-clipboard osx-dictionary org-plus-contrib org-bullets mwim minitest madhat2r-theme livid-mode skewer-mode simple-httpd link-hint hide-comnt git-link fuzzy flyspell-correct-helm flyspell-correct eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump darkokai-theme column-enforce-mode color-identifiers-mode zonokai-theme zenburn-theme zen-and-art-theme xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme spacemacs-theme spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smooth-scrolling smeargle slim-mode shell-pop seti-theme scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme quelpa purple-haze-theme projectile-rails professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el pbcopy pastels-on-dark-theme paradox page-break-lines osx-trash orgit organic-green-theme open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme neotree naquadah-theme mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow macrostep lush-theme lua-mode lorem-ipsum linum-relative light-soap-theme leuven-theme less-css-mode launchctl key-chord json-mode js2-refactor js-doc jbeans-theme jazz-theme jade-mode ir-black-theme inkpot-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gh-md gandalf-theme flycheck-pos-tip flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator feature-mode farmhouse-theme fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dracula-theme django-theme diff-hl define-word darktooth-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web company-tern company-statistics company-quickhelp colorsarenice-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme clean-aindent-mode chruby cherry-blossom-theme busybee-theme bundler buffer-move bubbleberry-theme bracketed-paste birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)
+   dotspacemacs-additional-packages '(key-chord json-snatcher json-reformat parent-mode gitignore-mode fringe-helper git-gutter+ pos-tip pkg-info epl flx goto-chg web-completion-data handlebars-mode all-the-icons-dired all-the-icons evil-nerd-commenter dired+ project-explorer yaml-mode org-mime ember-yasnippets ember-mode powerline rake inflections spinner markdown-mode multiple-cursors hydra projectile request haml-mode git-gutter flycheck magit magit-popup iedit paredit anzu diminish autothemer dash-functional tern inf-ruby bind-key yasnippet packed auto-complete company highlight smartparens bind-map f evil undo-tree git-commit with-editor helm helm-core popup async avy s dash js2-mode winum uuidgen unfill toc-org pug-mode osx-clipboard osx-dictionary org-plus-contrib org-bullets mwim minitest madhat2r-theme livid-mode skewer-mode simple-httpd link-hint hide-comnt git-link fuzzy flyspell-correct-helm flyspell-correct eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump darkokai-theme column-enforce-mode color-identifiers-mode zonokai-theme zenburn-theme zen-and-art-theme xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacemacs-theme spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smooth-scrolling smeargle slim-mode shell-pop seti-theme scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme quelpa purple-haze-theme projectile-rails professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el pbcopy pastels-on-dark-theme paradox page-break-lines osx-trash orgit organic-green-theme open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme neotree naquadah-theme mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow macrostep lush-theme lua-mode lorem-ipsum linum-relative light-soap-theme leuven-theme less-css-mode launchctl key-chord json-mode js2-refactor js-doc jbeans-theme jazz-theme jade-mode ir-black-theme inkpot-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gh-md gandalf-theme flycheck-pos-tip flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator feature-mode farmhouse-theme fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dracula-theme django-theme diff-hl define-word darktooth-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web company-tern company-statistics company-quickhelp color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme clean-aindent-mode chruby cherry-blossom-theme busybee-theme bundler buffer-move bubbleberry-theme bracketed-paste birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -126,8 +160,9 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    ;; dotspacemacs-default-font '("Lekton"
-   dotspacemacs-default-font '("Inconsolata LGC"
-                              :size 16
+   ;; dotspacemacs-default-font '("Inconsolata LGC"
+   dotspacemacs-default-font '("Fira Code Light"
+                              :size 18
                               :weight normal
                               :width normal
                               :powerline-scale 1.1)
@@ -186,7 +221,7 @@ values."
    dotspacemacs-helm-position 'bottom
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-enable-paste-micro-state t
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -212,7 +247,7 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 95
+   dotspacemacs-active-transparency 98
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -272,7 +307,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (when (window-system)
     (set-frame-height (selected-frame) 40)
     (set-frame-width (selected-frame) 80)
-    (set-frame-position (selected-frame) 480 150))                              
+    (set-frame-position (selected-frame) 480 150))
   (setq default-frame-alist '((undecorated . t)))
 
 )
@@ -284,6 +319,11 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
+
+  (setq-default line-spacing 2)
+
+  (when (fboundp 'winner-mode)
+    (winner-mode 1))
 
   ;; Ember Mode
   (add-hook 'js-mode-hook (lambda () (ember-mode t)))
@@ -302,14 +342,10 @@ you should place you code here."
    ;; fast, or hold down control to move 3x as fast. Perfect for trackpads.
    mouse-wheel-scroll-amount '(2 ((shift) . 4) ((control) . 6)))
 
-  ;; TODO: set spacemacs-useless-buffers-regexp to ignore *buffers* and dired
   (define-key evil-normal-state-map (kbd "<S-tab>") 'previous-buffer)
   (define-key evil-normal-state-map (kbd "<tab>") 'next-buffer)
   (define-key evil-normal-state-map (kbd "C-h") 'help-command)
   (define-key evil-normal-state-map (kbd "C-a") 'rotate-word-at-point)
-
-  ;; Visual word wrap
-  (visual-line-mode t)
 
   ;; Treat wrapped line scrolling as single lines
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
@@ -324,9 +360,7 @@ you should place you code here."
   ;; spacemacs as default git editor
   (global-git-commit-mode t)
 
-  ;; (require 'rainbow-mode)
   (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
-  ;; (add-hook 'html-mode-hook (lambda () (rainbow-mode 1)))
   (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
 
   ;; Unix Style C-h
@@ -341,9 +375,6 @@ you should place you code here."
 
   ;; this uses the transparency values above
   (spacemacs/toggle-transparency)
-
-  ;; neotree theme
-  (setq neo-theme 'icons)
 
   ;; Preserve Undo History
   (setq undo-tree-auto-save-history t
@@ -410,14 +441,9 @@ you should place you code here."
     :defer t
     :init
     (setq rainbow-html-colors-major-mode-list '(css-mode
-                                                html-mode
                                                 less-css-mode
-                                                nxml-mode
-                                                php-mode
                                                 sass-mode
-                                                scss-mode
-                                                ;; web-mode ;; #each in hbs gets colored
-                                                xml-mode))
+                                                scss-mode))
     (dolist (mode rainbow-html-colors-major-mode-list)
       (add-hook (intern (format "%s-hook" mode)) 'rainbow-mode)))
 
@@ -465,24 +491,24 @@ you should place you code here."
    ;; (set-quit-char "C-c C-c")
    ;; (set-quit-char "C-c C-g")
 
-   ;; Change Neotree default window width
-   (setq neo-window-width 16)
+   ;; (neo-global--with-buffer
+   ;;   (setq tab-width 4)
+   ;;   (visual-line-mode nil))
 
    ;; Reveal file on Neotree
-   ;; (defun neo-opens-outwards ()
-   ;;   (neotree-find-project-root)
-   ;;   )
-
-   (global-set-key (kbd "s-r") 'neotree-find-project-root)
-
-   ;; This is crazy: opt is meta, but with command it sends a Delta
-   (defun jujuba ()
-     "The Jujuba function"
+   (defun neo-opens-outwards ()
      (interactive)
-     (message "assassina"))
+     (if (neo-global--window-exists-p)
+         (progn
+          (set-frame-width (selected-frame) (- (frame-width) 15))
+          (neotree-hide)
+          )
+       (let ((origin-buffer-file-name (buffer-file-name)))
+         (set-frame-width (selected-frame) (+ (frame-width) 15))
+         (neotree-find (projectile-project-root))
+         (neotree-find origin-buffer-file-name))))
 
-   (global-set-key (kbd "M-s-j") 'jujuba)
-   (global-set-key (kbd "M-s-∆") 'jujuba)
+   (global-set-key (kbd "s-r") 'neo-opens-outwards)
 
    ;; When running ‘projectile-switch-project’ (C-c p p), ‘neotree’ will
    ;; change root automatically.
@@ -492,22 +518,25 @@ you should place you code here."
    (setq vc-follow-symlinks t)
 
    ;; Change Neotree default font
-   ;; (with-eval-after-load 'neotree
-   ;;   (add-hook 'neotree-mode-hook
-   ;;             (lambda ()
-   ;;               (custom-set-faces
-   ;;                (set-face-attribute 'neo-button-face      nil :height 120)
-   ;;                (set-face-attribute 'neo-file-link-face   nil :height 120)
-   ;;                (set-face-attribute 'neo-dir-link-face    nil :height 120)
-   ;;                (set-face-attribute 'neo-header-face      nil :height 120)
-   ;;                (set-face-attribute 'neo-expand-btn-face  nil :height 120)
-   ;;                )
-   ;;               (custom-set-variables
-   ;;                '(neo-window-position (quote right))
-   ;;                )
-   ;;               (text-scale-increase -4))))
-
-   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)) 
+   (with-eval-after-load 'neotree
+     (add-hook 'neotree-mode-hook
+               (lambda ()
+                 (custom-set-faces
+                  (set-face-attribute 'neo-button-face      nil :height 120)
+                  (set-face-attribute 'neo-file-link-face   nil :height 120)
+                  (set-face-attribute 'neo-dir-link-face    nil :height 120)
+                  (set-face-attribute 'neo-header-face      nil :height 120)
+                  (set-face-attribute 'neo-expand-btn-face  nil :height 120)
+                  )
+                 (custom-set-variables
+                  '(neo-window-position (quote right))
+                  ;; Change Neotree default window width
+                  '(neo-window-width 16)
+                  '(neo-autorefresh t)
+                  '(neo-show-hidden-files nil)
+                  '(neo-theme (if (display-graphic-p) 'icons 'arrow))
+                  )
+                 (text-scale-increase -3))))
 
    (add-hook 'neo-change-root-hook
              (lambda () (neo-buffer--with-resizable-window
@@ -646,9 +675,12 @@ Example:
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2 t)
  '(evil-shift-width 2)
+ '(neo-autorefresh t)
  '(neo-filepath-sort-function (lambda (f1 f2) (string< (downcase f1) (downcase f2))))
- '(neo-show-hidden-files nil t)
+ '(neo-show-hidden-files nil)
+ '(neo-theme (if (display-graphic-p) (quote icons) (quote arrow)))
  '(neo-window-position (quote right))
+ '(neo-window-width 16)
  '(package-selected-packages
    (quote
     (typo osx-clipboard window-numbering quelpa package-build project-explorer es-windows es-lib org-mime leuven-theme jade-mode helm-flyspell handlebars-mode evil-nerd-commenter ember-yasnippets ember-mode dired+ buffer-move all-the-icons-dired all-the-icons memoize font-lock+ zonokai-theme zenburn-theme zen-and-art-theme yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme purple-haze-theme pug-mode projectile-rails professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pbcopy pastels-on-dark-theme paradox osx-trash osx-dictionary orgit organic-green-theme org-bullets open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme neotree naquadah-theme mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minitest minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow madhat2r-theme macrostep lush-theme lua-mode lorem-ipsum livid-mode linum-relative link-hint light-soap-theme less-css-mode launchctl key-chord json-mode js2-refactor js-doc jbeans-theme jazz-theme ir-black-theme inkpot-theme info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md gandalf-theme fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator feature-mode farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump dracula-theme django-theme diff-hl darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web company-tern company-statistics column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-identifiers-mode coffee-mode clues-theme clean-aindent-mode chruby cherry-blossom-theme busybee-theme bundler bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
@@ -658,4 +690,6 @@ Example:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(font-lock-function-name-face ((t (:inherit normal :foreground "#bc6ec5"))))
+ '(font-lock-keyword-face ((t (:inherit normal :foreground "#4f97d7"))))
+ '(neo-dir-link-face ((t (:inherit bold :foreground "#4f97d7" :weight normal :height 120 :family "San Francisco")))))
