@@ -57,7 +57,11 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+    (auto-completion :variables
+                     auto-completion-return-key-behavior 'complete
+                     auto-completion-tab-key-behavior 'complete
+                     auto-completion-complete-with-key-sequence nil
+                     auto-completion-complete-with-key-sequence-delay 0.01)
      better-defaults
      cb-yasnippet
      colors
@@ -79,12 +83,11 @@ values."
      version-control
      vinegar
      (shell :variables
-            shell-default-shell 'shell
+            shell-default-position 'bottom
             shell-default-height 30
-            shell-default-position 'bottom)
-     ;; org
-     ;; spell-checking
-     ;; syntax-checking
+            shell-enable-smart-eshell t
+            shell-default-shell 'eshell
+            shell-default-full-span nil)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -255,7 +258,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers '(:disabled-for-modes text-mode)
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -268,7 +271,7 @@ values."
    dotspacemacs-persistent-server nil
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
-   ;; (default '("ag" "pt" "ack" "grep"))
+   ;; (default '(ag" "pt" "ack" "grep"))
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
@@ -279,9 +282,11 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   Dotspacemacs-whitespace-cleanup 'all
+   dotspacemacs-whitespace-cleanup 'all
 
    dotspacemacs-frame-title-format "%I@%S"
+
+   dotspacemacs-show-transient-state-title nil
    ))
 
 (defun dotspacemacs/user-init ()
@@ -296,7 +301,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq save-interprogram-paste-before-kill t)
 
   ;; Hide title bar
-  (setq initial-frame-alist '((undecorated . t)))
+  ;; (setq initial-frame-alist '((undecorated . t)))
 
   (when (window-system)
     (set-frame-height (selected-frame) 40)
@@ -320,7 +325,7 @@ you should place you code here."
   ;; Make insert cursor a vertical Bar. Keep default color.
   (setq evil-emacs-state-cursor '("SkyBlue2" bar))
 
-  ;; really! disabel it! 
+  ;; really! disabel it!
   (scroll-bar-mode -1)
 
   ;; space in between lines
@@ -362,10 +367,14 @@ you should place you code here."
   (global-git-commit-mode t)
 
   (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))
-  (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
-  (add-hook 'prog-mode-hook (lambda ()
-                              (hidden-mode-line-mode t)
-                              (visual-line-mode t)))
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (spacemacs/enable-transparency)
+              (rainbow-identifiers-mode t)
+              (hidden-mode-line-mode t)
+              (visual-line-mode t)))
+
+  ;; (spacemacs/enable-transparency dotspacemacs-active-transparency)
 
   ;; Unix Style C-h
   (global-set-key (kbd "C-?") 'help-command) ;; this isn't working...
@@ -373,19 +382,6 @@ you should place you code here."
   (global-set-key (kbd "C-h") 'delete-backward-char)
   (global-set-key (kbd "M-h") 'backward-kill-word)
   (global-set-key (kbd "C-g") 'evil-force-normal-state)
-
-  ;; disable word wrap
-  ;; (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
-
-  ;; this uses the transparency values above
-  (spacemacs/toggle-transparency)
-
-  ;; Preserve Undo History
-  ;; (setq undo-tree-auto-save-history t
-  ;;       undo-tree-history-directory-alist
-  ;;       `(("." . ,(concat spacemacs-cache-directory "undo"))))
-  ;; (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
-  ;;   (make-directory (concat spacemacs-cache-directory "undo")))
 
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 2)
@@ -452,47 +448,22 @@ you should place you code here."
   ;; auto-complete configs
   (setq-default dotspacemacs-configuration-layers
                 '(
-                  (auto-completion :variables
-                                   auto-completion-return-key-behavior 'complete
-                                   auto-completion-tab-key-behavior 'complete
-                                   auto-completion-complete-with-key-sequence nil
-                                   auto-completion-complete-with-key-sequence-delay 0.01
-                                   auto-completion-private-snippets-directory nil)
-                  (ruby :variables ruby-enable-enh-ruby-mode t)
-                  )
 
-
-                )
+                  (ruby :variables ruby-enable-enh-ruby-mode t)))
 
   (add-hook 'coffee-mode-hook 'company-mode-on)
 
-   ;;; C-c as general purpose escape key sequence.
-   ;;;
    (defun my-esc (prompt)
      "Functionality for escaping generally.  Includes exiting Evil insert state and C-g binding. "
      (cond
-      ;; If we're in one of the Evil states that defines [escape] key, return [escape] so as
-      ;; Key Lookup will use it.
       ((or (evil-insert-state-p)
            ;; (evil-normal-state-p)
            (evil-replace-state-p)
-           (evil-visual-state-p)) [escape])
-      ;; This is the best way I could infer for now to have C-c work during evil-read-key.
-      ;; Note: As long as I return [escape] in normal-state, I don't need this.
-      ;;((eq overriding-terminal-local-map evil-read-key-map) (keyboard-quit) (kbd ""))
-      ;; (t (kbd "C-g"))
-      ))
+           (evil-visual-state-p)) [escape])))
    (define-key key-translation-map (kbd "C-c") 'my-esc)
-   ;; Works around the fact that Evil uses read-event directly when in operator state, which
-   ;; doesn't use the key-translation-map.
-   ;; (define-key evil-operator-state-map (kbd "C-c") 'keyboard-quit)
-   ;; Not sure what behavior this changes, but might as well set it, seeing the Elisp manual's
-   ;; documentation of it.
-   ;; (set-quit-char "C-c C-c")
-   ;; (set-quit-char "C-c C-g")
 
-   ;; Reveal file on Neotree
    (defun neo-opens-outwards ()
+     "Reveals Neotree expanding frame so internal size keeps the same."
      (interactive)
      (if (neo-global--window-exists-p)
          (progn
@@ -505,19 +476,23 @@ you should place you code here."
          (set-frame-width (selected-frame) (+ (frame-width) 16)))))
    (global-set-key (kbd "s-r") 'neo-opens-outwards)
 
-   (global-set-key (kbd "<C-dead-tilde>") 'next-line)
+   (defun hide-application ()
+     "Hides Emacs if trying to close last frame."
+     (condition-case nil
+         (ns-do-hide-emacs)
+       (error (do-applescript "
+              tell application \"System Events\"
+                set frontmostProcess to first process where it is frontmost
+                log frontmostProcess
+                set visible of frontmostProcess to false
+              end tell"))))
 
    (defun delete-window-or-frame (&optional window frame force)
      (interactive)
      (if (= 1 (length (window-list frame)))
          (condition-case nil
              (delete-frame frame force)
-           (error
-            (do-applescript "
-              tell application \"System Events\"
-                set frontmostProcess to first process where it is frontmost
-                set visible of frontmostProcess to false
-              end tell")))
+           (error 'hide-application))
        (delete-window window)))
 
    (global-set-key (kbd "s-w") 'delete-window-or-frame)
@@ -532,9 +507,8 @@ you should place you code here."
                         (selected-frame) (active-minibuffer-window))))
    (add-hook 'minibuffer-setup-hook
              (lambda ()
-               ;; I don't know why minibuffer have this cursor color 
+               ;; I don't know why minibuffer have this cursor color
                (setq evil-emacs-state-cursor '("SkyBlue2" bar))
-
                (text-scale-set 2)))
 
    ;; Always follow symlinks
@@ -553,13 +527,7 @@ you should place you code here."
                (text-scale-set -2)
 
                ;; Set width here so it takes scaled font size
-               (setq neo-window-width 16)))
-
-   ;; (add-hook 'neo-change-root-hook
-   ;;           (lambda () (neo-buffer--with-resizable-window
-   ;;                       (let ((fit-window-to-buffer-horizontally t))
-   ;;                         (fit-window-to-buffer)))))
-  )
+               (setq neo-window-width 16))))
 
 ;;;;;;;;;;;;;;;
 ;; Rotate Text
@@ -664,7 +632,7 @@ Example:
   "Return frame title with current project name, where applicable."
   (let ((file buffer-file-name))
     (if file
-        (concat (abbreviate-file-name file)
+        (concat (file-relative-name (projectile-expand-root file) (projectile-project-root))
                 (when (and (bound-and-true-p projectile-mode)
                            (projectile-project-p))
                   (format " [%s]" (projectile-project-name))))
@@ -695,20 +663,32 @@ Example:
  '(neo-autorefresh t)
  '(neo-filepath-sort-function (lambda (f1 f2) (string< (downcase f1) (downcase f2))))
  '(neo-force-change-root t)
- '(neo-show-hidden-files nil)
+ '(neo-show-hidden-files nil t)
  '(neo-theme (if (display-graphic-p) (quote icons) (quote arrow)))
+ '(neo-vc-integration (quote (char)) t)
  '(neo-window-position (quote right))
  '(osx-clipboard-mode t)
  '(package-selected-packages
    (quote
-    (nord-theme svg-clock svg e2wm-svg-clock es-lib xmlgen zonokai-theme zenburn-theme zen-and-art-theme yaml-mode xterm-color ws-butler winum window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill underwater-theme ujelly-theme typo twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme quelpa purple-haze-theme pug-mode projectile-rails project-explorer professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pbcopy pastels-on-dark-theme paradox osx-trash osx-dictionary osx-clipboard orgit organic-green-theme org-mime org-bullets open-junk-file omtose-phellack-theme oldlace-theme ocodo-svg-modelines occidental-theme obsidian-theme noctilux-theme niflheim-theme neotree naquadah-theme mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minitest minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow madhat2r-theme macrostep lush-theme lua-mode lorem-ipsum livid-mode linum-relative link-hint light-soap-theme leuven-theme less-css-mode launchctl key-chord json-mode js2-refactor js-doc jbeans-theme jazz-theme jade-mode ir-black-theme inkpot-theme info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme handlebars-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md gandalf-theme fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator feature-mode farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help emmet-mode ember-yasnippets ember-mode elisp-slime-nav dumb-jump dracula-theme django-theme dired+ diff-hl darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web company-tern company-statistics column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-identifiers-mode coffee-mode clues-theme clean-aindent-mode chruby cherry-blossom-theme busybee-theme bundler buffer-move bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme all-the-icons-dired alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (nord-theme svg-clock svg e2wm-svg-clock es-lib xmlgen zonokai-theme zenburn-theme zen-and-art-theme yaml-mode xterm-color ws-butler winum window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill underwater-theme ujelly-theme typo twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme reveal-in-osx-finder restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme quelpa purple-haze-theme pug-mode projectile-rails project-explorer professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pbcopy pastels-on-dark-theme paradox osx-trash osx-dictionary osx-clipboard orgit organic-green-theme org-mime org-bullets open-junk-file omtose-phellack-theme oldlace-theme ocodo-svg-modelines occidental-theme obsidian-theme noctilux-theme niflheim-theme neotree naquadah-theme mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minitest minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow madhat2r-theme macrostep lush-theme lua-mode lorem-ipsum livid-mode linum-relative link-hint light-soap-theme leuven-theme less-css-mode launchctl key-chord json-mode js2-refactor js-doc jbeans-theme jazz-theme jade-mode ir-black-theme inkpot-theme info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme handlebars-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md gandalf-theme fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator feature-mode farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help emmet-mode ember-yasnippets ember-mode elisp-slime-nav dumb-jump dracula-theme django-theme dired+ diff-hl darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web company-tern company-statistics column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-identifiers-mode coffee-mode clues-theme clean-aindent-mode chruby cherry-blossom-theme busybee-theme bundler buffer-move bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme all-the-icons-dired alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(window-divider-default-bottom-width 1)
+ '(window-divider-default-places t)
+ '(window-divider-default-right-width 1)
+ '(window-divider-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(anzu-match-2 ((t (:background "deep sky blue" :foreground "black"))))
+ '(company-preview ((t (:background "#34323e" :foreground "#9a9aba" :height 1.5))))
+ '(evil-search-highlight-persist-highlight-face ((t (:inherit lazy-highlight))))
  '(font-lock-function-name-face ((t (:inherit normal :foreground "#bc6ec5"))))
  '(font-lock-keyword-face ((t (:inherit normal :foreground "#4f97d7"))))
+ '(linum ((t (:background "#212026" :foreground "#44505c" :height 0.7 :family "San Francisco"))))
  '(neo-dir-link-face ((t (:inherit bold :foreground "#4f97d7" :weight normal :height 120 :family "San Francisco"))))
- '(neo-file-link-face ((t (:foreground "#b2b2b2" :weight light :height 120 :width normal :family "San Francisco")))))
+ '(neo-file-link-face ((t (:foreground "#b2b2b2" :weight light :height 120 :width normal :family "San Francisco"))))
+ '(neo-header-face ((t (:foreground "light gray" :weight semi-bold :height 1.2 :family "San Francisco"))))
+ '(neo-root-dir-face ((t (:inherit bold :foreground "#bc6ec5" :family "San Francisco"))))
+ '(window-divider ((t (:foreground "MediumPurple4")))))
