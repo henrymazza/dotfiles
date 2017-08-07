@@ -1,3 +1,14 @@
+hs.window.animationDuration = 0.1
+
+hs.hotkey.bind({"ctrl", "shift"}, 'q',
+  function()
+    hs.grid.show()
+  end
+)
+
+
+hs.console.alpha(0.90)
+--
 -- hs.loadSpoon('ColorPicker')
 
 -- spoon.ColorPicker.bindHotkeys({"ctrl", "shift", 's'})
