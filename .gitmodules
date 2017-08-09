@@ -98,9 +98,3 @@
 	path = vim/janus/textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
 	ignore = dirty
-[submodule "space/spacemacs.d/layers/tabbar"]
-	path = space/spacemacs.d/layers/tabbar
-	url = https://github.com/evacchi/tabbar-layer.git
-[submodule "space/themes/sunburst"]
-	path = space/themes/sunburst
-	url = https://github.com/neomantic/Emacs-Sunburst-Color-Theme.git
