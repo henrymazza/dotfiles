@@ -11,3 +11,4 @@ emacs.disabled/eshell/history
 **/*history
 zsh/zsh-update
 karabiner/karabiner.d/log/console_user_server_log.txt
+**/*.~undo-tree~
