@@ -13,5 +13,9 @@ zsh/zsh-update
 karabiner/karabiner.d/log/console_user_server_log.txt
 **/*.~undo-tree~
 space/spacemacs.d/.persistent-scratch
+<<<<<<< Updated upstream
 /config/config/configstore/update-notifier-npm.json
 /config/config/configstore/update-notifier-bower.json
+=======
+config/config/**/*
+>>>>>>> Stashed changes
