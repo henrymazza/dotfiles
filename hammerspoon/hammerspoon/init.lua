@@ -1,3 +1,5 @@
+require 'hammerspoon-move-resize'
+
 hs.window.animationDuration = 0.1
 
 hs.hotkey.bind({"ctrl", "shift"}, 'q',
