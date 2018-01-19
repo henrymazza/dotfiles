@@ -7,6 +7,24 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="sorin"
 
+function git_prompt_info() {}
+function git_prompt_status() {}
+function compdef() {}
+source ~/.git-prompt.sh
+
+setopt promptsubst
+
+# Load the theme
+if [ ! "$ZSH_THEME" = ""  ]; then
+    if [ -f "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme" ]; then
+        source "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme"
+    elif [ -f "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme" ]; then
+        source "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
+    else
+        source "$ZSH/themes/$ZSH_THEME.zsh-theme"
+    fi
+fi
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -33,39 +51,35 @@ alias digg="dig +nocmd any +multiline +noall +answer"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump bundler git osx gem brew)
-pluginslate=()
+plugins=(autojump)
+plugins_defered=(bundler git osx gem brew rbenv ruby)
 
-# echo "source git-prompt:"
-# source ~/.git-prompt.sh
 
 # rbenv stuff
 eval "$(rbenv init -)"
 
-# source ~/.async.zsh
-# autoload -Uz async && async
-# async_init
+source ~/.async.zsh
+autoload -Uz async && async
+async_init
 
 # Initialize a new worker (with notify option)
-# async_start_worker my_worker -n
+async_start_worker my_worker -n
 
-source $ZSH/oh-my-zsh.sh
 # Create a callback function to process results
-# completed_callback() {
-#     for plugin ($pluginslate); do
-#         if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
-#             source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
-#         elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
-#             source $ZSH/plugins/$plugin/$plugin.plugin.zsh
-#         fi
-#     done
-# }
+function completed_callback() {
+    source $ZSH/oh-my-zsh.sh
+    for plugin ($plugins_defered); do
+        source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+    done
+}
+source $ZSH/lib/history.zsh
 
 # Register callback function for the workers completed jobs
-# async_register_callback my_worker completed_callback
+async_register_callback my_worker completed_callback
 
 # Give the worker some tasks to perform
-# async_job my_worker sleep 3
+# async_job my_worker
+async_job my_worker sleep 3
 
 # Customize to your needs...
 export PATH=.rbenv/bin:./bin:~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
@@ -83,7 +97,14 @@ export GIT_EDITOR="em"
 export EDITOR='em'
 export ALTERNATE_EDITOR="vim -w"
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+#lazy load autojump
+function j() {
+    (( $+commands[brew] )) && {
+        local pfx=$(brew --prefix)
+        [[ -f "$pfx/etc/autojump.sh" ]] && . "$pfx/etc/autojump.sh"
+        j "$@"
+    }
+}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # export PATH="/usr/local/opt/icu4c/bin:$PATH"
