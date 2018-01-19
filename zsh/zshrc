@@ -11,7 +11,6 @@ ZSH_THEME="sorin"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias digg="dig +nocmd any +multiline +noall +answer"
-alias gitt="gittower ."
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -34,19 +33,45 @@ alias gitt="gittower ."
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump bundler git osx gem brew rbenv)
+plugins=(autojump bundler git osx gem brew)
+pluginslate=()
 
-source ~/.git-prompt.sh
+# echo "source git-prompt:"
+# source ~/.git-prompt.sh
+
+# rbenv stuff
+eval "$(rbenv init -)"
+
+# source ~/.async.zsh
+# autoload -Uz async && async
+# async_init
+
+# Initialize a new worker (with notify option)
+# async_start_worker my_worker -n
+
 source $ZSH/oh-my-zsh.sh
+# Create a callback function to process results
+# completed_callback() {
+#     for plugin ($pluginslate); do
+#         if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+#             source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+#         elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+#             source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+#         fi
+#     done
+# }
+
+# Register callback function for the workers completed jobs
+# async_register_callback my_worker completed_callback
+
+# Give the worker some tasks to perform
+# async_job my_worker sleep 3
 
 # Customize to your needs...
 export PATH=.rbenv/bin:./bin:~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 # Postgres bins
 export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
-
-# rbenv stuff
-eval "$(rbenv init -)"
 
 setopt extendedglob
 
@@ -56,10 +81,10 @@ unsetopt correct_all
 # The Editors!
 export GIT_EDITOR="em"
 export EDITOR='em'
-export ALTERNATE_EDITOR="em"
+export ALTERNATE_EDITOR="vim -w"
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+# export PATH="/usr/local/opt/icu4c/bin:$PATH"
+# export PATH="/usr/local/opt/icu4c/sbin:$PATH"
