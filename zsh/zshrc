@@ -15,15 +15,6 @@ source ~/.git-prompt.sh
 setopt promptsubst
 
 # Load the theme
-if [ ! "$ZSH_THEME" = ""  ]; then
-    if [ -f "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme" ]; then
-        source "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme"
-    elif [ -f "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme" ]; then
-        source "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
-    else
-        source "$ZSH/themes/$ZSH_THEME.zsh-theme"
-    fi
-fi
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -65,13 +56,24 @@ async_init
 # Initialize a new worker (with notify option)
 async_start_worker my_worker -n
 
+VAR=0
+
 # Create a callback function to process results
 function completed_callback() {
-    source $ZSH/oh-my-zsh.sh
-    for plugin ($plugins_defered); do
+    if [ $VAR -eq 0 ]; then
+      source $ZSH/oh-my-zsh.sh
+      VAR=$((VAR+1))
+      async_job my_worker sleep 1
+    elif [ $VAR -ge 1 ]; then
+      plugin=$plugins_defered[$VAR]
+      if [ ! -z "$plugin" ]; then
         source $ZSH/plugins/$plugin/$plugin.plugin.zsh
-    done
+        VAR=$((VAR+1))
+        async_job my_worker sleep 1
+      fi
+    fi
 }
+
 source $ZSH/lib/history.zsh
 
 # Register callback function for the workers completed jobs
@@ -79,7 +81,7 @@ async_register_callback my_worker completed_callback
 
 # Give the worker some tasks to perform
 # async_job my_worker
-async_job my_worker sleep 3
+async_job my_worker sleep 1
 
 # Customize to your needs...
 export PATH=.rbenv/bin:./bin:~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
@@ -105,6 +107,8 @@ function j() {
         j "$@"
     }
 }
+
+source "$ZSH/themes/$ZSH_THEME.zsh-theme"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # export PATH="/usr/local/opt/icu4c/bin:$PATH"
