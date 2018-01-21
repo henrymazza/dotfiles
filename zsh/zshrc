@@ -43,11 +43,8 @@ alias digg="dig +nocmd any +multiline +noall +answer"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(autojump)
-plugins_defered=(bundler git osx gem brew rbenv ruby)
+plugins_defered=(bundler git osx gem brew ruby)
 
-
-# rbenv stuff
-eval "$(rbenv init -)"
 
 source ~/.async.zsh
 autoload -Uz async && async
@@ -70,6 +67,9 @@ function completed_callback() {
         source $ZSH/plugins/$plugin/$plugin.plugin.zsh
         VAR=$((VAR+1))
         async_job my_worker sleep 1
+      else
+        # rbenv stuff
+        eval "$(rbenv init -)"
       fi
     fi
 }
@@ -111,5 +111,7 @@ function j() {
 source "$ZSH/themes/$ZSH_THEME.zsh-theme"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# export PATH="/usr/local/opt/icu4c/bin:$PATH"
-# export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# Node >=7 dependency
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
