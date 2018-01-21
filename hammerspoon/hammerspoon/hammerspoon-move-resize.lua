@@ -29,7 +29,7 @@ drag_event = hs.eventtap.new({ hs.eventtap.event.types.mouseMoved }, function(e)
     local mods = hs.eventtap.checkKeyboardModifiers()
     logger.i(accX, accY)
 
-    if math.abs(accX) > dragMinimum or math.abs(accY) > dragMinimum then
+    if math.abs(accX) > dragMinimum or math.abs(accY) > dragMinimum or math.abs(dx) > dragMinimum * 2 or math.abs(dy) > dragMinimum * 2 then
       dx = accX + dx
       dy = accY + dy
       -- Ctrl + Shift to move the window under cursor
