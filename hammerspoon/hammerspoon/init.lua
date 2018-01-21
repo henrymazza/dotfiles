@@ -8,7 +8,6 @@ hs.hotkey.bind({"ctrl", "shift"}, 'q',
   end
 )
 
-
 hs.console.alpha(0.90)
 --
 -- hs.loadSpoon('ColorPicker')
