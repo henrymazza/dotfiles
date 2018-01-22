@@ -18,7 +18,7 @@ dragging_mode = 1
 
 accX = 0
 accY = 0
-dragMinimum = 5
+dragMinimum = 7
 
 logger = hs.logger.new('xy', 'verbose')
 

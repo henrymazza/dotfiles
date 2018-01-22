@@ -75,7 +75,7 @@ function completed_callback() {
 }
 
 source $ZSH/lib/history.zsh
-
+source $ZSH/lib/theme-and-appearance.zsh
 # Register callback function for the workers completed jobs
 async_register_callback my_worker completed_callback
 
@@ -95,9 +95,9 @@ setopt extendedglob
 unsetopt correct_all
 
 # The Editors!
-export GIT_EDITOR="em"
-export EDITOR='em'
-export ALTERNATE_EDITOR="vim -w"
+export GIT_EDITOR="emacsclient -n"
+export EDITOR='emacsclient -n'
+export ALTERNATE_EDITOR="emacs"
 
 #lazy load autojump
 function j() {
