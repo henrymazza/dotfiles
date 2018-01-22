@@ -43,7 +43,7 @@ alias digg="dig +nocmd any +multiline +noall +answer"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(autojump)
-plugins_defered=(bundler git osx gem brew ruby)
+plugins_defered=(git osx gem ruby rbenv bundler)
 
 
 source ~/.async.zsh
@@ -55,36 +55,39 @@ async_start_worker my_worker -n
 
 VAR=0
 
+eval "$(rbenv init -)"
+source $ZSH/oh-my-zsh.sh
+
 # Create a callback function to process results
 function completed_callback() {
     if [ $VAR -eq 0 ]; then
-      source $ZSH/oh-my-zsh.sh
+      # source $ZSH/oh-my-zsh.sh
       VAR=$((VAR+1))
-      async_job my_worker sleep 1
+      async_job my_worker sleep 0.1
     elif [ $VAR -ge 1 ]; then
       plugin=$plugins_defered[$VAR]
       if [ ! -z "$plugin" ]; then
         source $ZSH/plugins/$plugin/$plugin.plugin.zsh
         VAR=$((VAR+1))
-        async_job my_worker sleep 1
+        async_job my_worker sleep 0.1
       else
-        # rbenv stuff
-        eval "$(rbenv init -)"
       fi
     fi
 }
 
 source $ZSH/lib/history.zsh
 source $ZSH/lib/theme-and-appearance.zsh
+source $ZSH/themes/$ZSH_THEME.zsh-theme
+
 # Register callback function for the workers completed jobs
 async_register_callback my_worker completed_callback
 
 # Give the worker some tasks to perform
 # async_job my_worker
-async_job my_worker sleep 1
+async_job my_worker sleep 0.1
 
 # Customize to your needs...
-export PATH=.rbenv/bin:./bin:~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=~/.rbenv/shims:./bin:~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 # Postgres bins
 export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
@@ -108,10 +111,10 @@ function j() {
     }
 }
 
-source "$ZSH/themes/$ZSH_THEME.zsh-theme"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Node >=7 dependency
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/node@8/bin:$PATH"
