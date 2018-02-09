@@ -96,8 +96,8 @@ setopt extendedglob
 unsetopt correct_all
 
 # The Editors!
-export GIT_EDITOR="emacsclient -n"
-export EDITOR='emacsclient -n'
+export GIT_EDITOR="emacsclient"
+export EDITOR='emacsclient'
 export ALTERNATE_EDITOR="emacs"
 
 #lazy load autojump
