@@ -19,3 +19,5 @@ space/spacemacs.d/.persistent-scratch
 =======
 config/config/**/*
 >>>>>>> Stashed changes
+vim/janus/**
+vim/janus
