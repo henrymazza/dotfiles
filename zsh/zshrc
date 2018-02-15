@@ -41,8 +41,6 @@ alias digg="dig +nocmd any +multiline +noall +answer"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump)
-plugins_defered=(git osx gem ruby rbenv bundler)
 
 source ~/.async.zsh
 autoload -Uz async && async
@@ -53,36 +51,47 @@ async_start_worker my_worker -n
 
 VAR=0
 
-# Create a callback function to process results
-function completed_callback() {
-    if [ $VAR -eq 0 ]; then
-      source $ZSH/oh-my-zsh.sh
-      VAR=$((VAR+1))
-      async_job my_worker sleep 0.1
-    elif [ $VAR -ge 1 ]; then
-      plugin=$plugins_defered[$VAR]
-      if [ ! -z "$plugin" ]; then
-        source $ZSH/plugins/$plugin/$plugin.plugin.zsh
-        VAR=$((VAR+1))
-        async_job my_worker sleep 0.1
-      else
-        alias ls="ls -G --color"
+if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
+    plugins=(autojump)
+    plugins_defered=(git osx gem ruby rbenv bundler)
+    # Create a callback function to process results
+    function completed_callback() {
+        if [ $VAR -eq 0 ]; then
+            source $ZSH/oh-my-zsh.sh
+            VAR=$((VAR+1))
+            async_job my_worker sleep 0.1
+        elif [ $VAR -ge 1 ]; then
+            plugin=$plugins_defered[$VAR]
+            if [ ! -z "$plugin" ]; then
+                source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+                VAR=$((VAR+1))
+                async_job my_worker sleep 0.1
+            else
+                alias ls="ls -G --color"
 
-        export PATH="./bin:~/bin:$PATH"
-      fi
-    fi
-}
+                export PATH="./bin:~/bin:$PATH"
+            fi
+        fi
+    }
 
-source $ZSH/lib/history.zsh
-source $ZSH/lib/theme-and-appearance.zsh
-source $ZSH/themes/$ZSH_THEME.zsh-theme
+    source $ZSH/lib/history.zsh
+    source $ZSH/lib/theme-and-appearance.zsh
+    source $ZSH/themes/$ZSH_THEME.zsh-theme
 
-# Register callback function for the workers completed jobs
-async_register_callback my_worker completed_callback
+    # Register callback function for the workers completed jobs
+    async_register_callback my_worker completed_callback
 
-# Give the worker some tasks to perform
-# async_job my_worker
-async_job my_worker sleep 0.1
+    # Give the worker some tasks to perform
+    # async_job my_worker
+    async_job my_worker sleep 0.1
+else
+    plugins=(autojump git osx gem ruby rbenv bundler)
+    source $ZSH/oh-my-zsh.sh
+
+    # omz version isn't loading the path
+    eval "$(rbenv init -)"
+    export PATH="~/.rbenv/shims:$PATH"
+fi
 
 # Customize to your needs...
 export PATH=~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
@@ -122,5 +131,3 @@ export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # gnu-sed
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-
-# eval "$(rbenv init -)"
