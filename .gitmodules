@@ -98,3 +98,6 @@
 	path = vim/janus/textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
 	ignore = dirty
+[submodule "space/spacemacs.d"]
+	path = space/spacemacs.d
+	url = git@github.com:henrymazza/spaceghost.d.git
