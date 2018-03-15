@@ -85,12 +85,14 @@ if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
     # async_job my_worker
     async_job my_worker sleep 0.1
 else
+    echo "iTerm not detected."
     plugins=(autojump git osx gem ruby rbenv bundler)
     source $ZSH/oh-my-zsh.sh
 
     # omz version isn't loading the path
     eval "$(rbenv init -)"
     export PATH="~/.rbenv/shims:$PATH"
+    export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
 # Customize to your needs...
@@ -131,3 +133,5 @@ export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # gnu-sed
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
