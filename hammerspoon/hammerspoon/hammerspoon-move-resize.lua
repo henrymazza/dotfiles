@@ -18,7 +18,7 @@ dragging_mode = 1
 
 accX = 0
 accY = 0
-dragMinimum = 7
+dragMinimum = 1
 
 logger = hs.logger.new('xy', 'verbose')
 
@@ -27,20 +27,19 @@ drag_event = hs.eventtap.new({ hs.eventtap.event.types.mouseMoved }, function(e)
     local dx = e:getProperty(hs.eventtap.event.properties.mouseEventDeltaX)
     local dy = e:getProperty(hs.eventtap.event.properties.mouseEventDeltaY)
     local mods = hs.eventtap.checkKeyboardModifiers()
-    logger.i(accX, accY)
 
     if math.abs(accX) > dragMinimum or math.abs(accY) > dragMinimum or math.abs(dx) > dragMinimum * 2 or math.abs(dy) > dragMinimum * 2 then
       dx = accX + dx
       dy = accY + dy
       -- Ctrl + Shift to move the window under cursor
       if dragging_mode == 1 and mods.ctrl and mods.shift then
-        dragging_win:move({1*dx, 1*dy}, nil, false, 0)
+        dragging_win:move({2*dx, 2*dy}, nil, false, 0)
 
       -- Alt + Shift to resize the window under cursor
       elseif mods.alt and mods.shift then
         local sz = dragging_win:size()
-        local w1 = sz.w + 1*dx
-        local h1 = sz.h + 1*dy
+        local w1 = sz.w + 2*dx
+        local h1 = sz.h + 2*dy
         dragging_win:setSize(w1, h1)
       end
       accX = 0

@@ -9,7 +9,8 @@ ZSH_THEME="sorin"
 HISTDUP=erase
 setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
-setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+setopt    incappendhistory  #Immediately append to the history file,
+                            #not just when a term is killed
 
 function git_prompt_info() {}
 function git_prompt_status() {}
@@ -52,8 +53,8 @@ async_start_worker my_worker -n
 VAR=0
 
 if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
-    plugins=(autojump)
-    plugins_defered=(git osx gem ruby rbenv bundler)
+    plugins=(autojump git osx)
+    plugins_defered=(bundler ruby gem)
     # Create a callback function to process results
     function completed_callback() {
         if [ $VAR -eq 0 ]; then
@@ -85,18 +86,20 @@ if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
     # async_job my_worker
     async_job my_worker sleep 0.1
 else
-    echo "iTerm not detected."
-    plugins=(autojump git osx gem ruby rbenv bundler)
-    source $ZSH/oh-my-zsh.sh
+    if [ -n "$INSIDE_EMACS" ]; then
+      plugins=(autojump git osx gem ruby rbenv bundler)
+      source $ZSH/oh-my-zsh.sh
+    fi
 
     # omz version isn't loading the path
-    eval "$(rbenv init -)"
-    export PATH="~/.rbenv/shims:$PATH"
-    export PATH="$HOME/.rbenv/bin:$PATH"
+    #export PATH="~/.rbenv/shims:$PATH"
+    #export PATH="$HOME/.rbenv/bin:$PATH"
+    #eval "$(rbenv init -)"
 fi
 
 # Customize to your needs...
-export PATH=~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=~/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 # Postgres bins
 export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
@@ -126,12 +129,26 @@ function j() {
 export RAILS_VERSION=5.0
 
 # Node >=7 dependency
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-export PATH="/usr/local/opt/node@8/bin:$PATH"
+# export PATH="/usr/local/opt/icu4c/bin:$PATH"
+# export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
 # coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
 # gnu-sed
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+# # # export PATH="/usr/local/opt/gettext/bin:$PATH"
+# export PATH="/usr/local/opt/icu4c/bin:$PATH" echo export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+# export PATH="/usr/local/opt/icu4c/bin:$PATH" echo export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+# export PATH="/usr/local/opt/node@8/bin:$PATH"
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+# [[ -f /Users/HMz/Development/uni-fe/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/HMz/Development/uni-fe/node_modules/tabtab/.completions/electron-forge.zsh
+
+# export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+export PATH="./node_modules/.bin:$PATH"

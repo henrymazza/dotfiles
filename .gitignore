@@ -6,6 +6,9 @@ emacs*/emacs_backups/**
 emacs*/emacs_autosaves/**
 ssh
 emacs.disabled/eshell/history
+config/config/Binreader/Binreader.ini
+config/config/Binreader/queue.qzb
+config/config/Binreader/queue.qzb.old
 
 /* Don't persist sensitive info! */
 **/*history
@@ -13,12 +16,7 @@ zsh/zsh-update
 karabiner/karabiner.d/log/console_user_server_log.txt
 **/*.~undo-tree~
 space/spacemacs.d/.persistent-scratch
-<<<<<<< Updated upstream
-/config/config/configstore/update-notifier-npm.json
-/config/config/configstore/update-notifier-bower.json
-=======
 config/config/**/*
->>>>>>> Stashed changes
 vim/janus/**
 vim/janus
 /test.py

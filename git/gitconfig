@@ -19,6 +19,7 @@
 [core]
 	excludesfile = /Users/fabiomazarotto/.gitignore_global
 	quotepath = false
+	precomposeUnicode = true
 [alias]
   s = status -sb
   co = checkout

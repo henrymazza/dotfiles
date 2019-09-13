@@ -1,5 +1,15 @@
 require 'hammerspoon-move-resize'
 
+local function keyCode(key, modifiers)
+  modifiers = modifiers or {}
+
+  return function()
+    hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
+    hs.timer.usleep(1000)
+    hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
+  end
+end
+
 hs.window.animationDuration = 0.1
 
 hs.hotkey.bind({"ctrl", "shift"}, 'q',
@@ -23,7 +33,7 @@ control_key_timer = hs.timer.delayed.new(0.10, function()
     ctrl_table["send_escape"] = false
     -- log.i("timer fired")
     -- control_key_timer:stop()
-end
+                                               end
 )
 
 last_mods = {}
@@ -45,17 +55,11 @@ end)
 sketchUpShowRestOfModel:disable()
 
 local wf=hs.window.filter
--- sketchup_wf.allowedWindowRoles = {AXStandardWindow=true,AXDialog=true}
 
-sketchup_wf = wf.new()
-sketchup_wf.allowedWindowRoles = {AXStandardWindow=true,AXDialog=true}
-sketchup_wf:setAppFilter('SketchUp')
-sketchup_wf:subscribe(wf.windowFocused,
+sketchup_wf = wf.new{'SketchUp'}
+
+sketchup_wf.allowedWindowRoles = {AXStandardWindow=true,AXDialog=true} sketchup_wf:subscribe(wf.windowFocused,
                       function(window, appName, eventName)
-                        log = hs.logger.new('jujuba', 'verbose')
-                        log.d(window:subrole(), appName, eventName)
-
-
                         -- sketchUpShowRestOfModel:enable()
                         -- sketchUpSelect:enable()
                         -- log.d('unfocused')
@@ -65,15 +69,38 @@ sketchup_wf:subscribe(wf.windowFocused,
 )
 sketchup_wf:subscribe(wf.windowUnfocused,
                       function(window, appName, eventName)
-                        log = hs.logger.new('jujuba', 'verbose')
-                        log.d(window:isStandard(), appName, eventName)
-
                         -- sketchUpShowRestOfModel:enable()
                         -- sketchUpSelect:enable()
                         -- log.d('unfocused')
                         -- sketchUpShowRestOfModel:disable()
                         -- sketchUpSelect:disable()
                       end
+)
+
+emacsKeys_wf = wf.new{'Numbers', 'Safari', 'OmniFocus', 'Finder'}
+hk = hs.hotkey
+
+emacsKeys = {
+  hk.new({'ctrl'}, 'n', keyCode('down'), nil, keyCode('down')),
+  hk.new({'ctrl'}, 'p', keyCode('up'), nil, keyCode('up')),
+  hk.new({'ctrl'}, 'f', keyCode('right'), nil, keyCode('right')),
+  hk.new({'ctrl'}, 'b', keyCode('left'), nil, keyCode('left'))
+}
+
+emacsKeys_wf:subscribe(wf.windowFocused,
+                      function(window, appName, eventName)
+                        for k,v in pairs(emacsKeys) do
+                          v:enable()
+                        end
+                      end
+)
+
+emacsKeys_wf:subscribe(wf.windowUnfocused,
+                       function(window, appName, eventName)
+                         for k,v in pairs(emacsKeys) do
+                           v:disable()
+                         end
+                       end
 )
 
 appWatcher = hs.application.watcher.new(function(appName, eventType, obj)
@@ -118,19 +145,6 @@ control_tap = hs.eventtap.new({12}, control_handler)
 --control_tap:start()
 
 ---------------------------------
-
-local function keyCode(key, modifiers)
-  modifiers = modifiers or {}
-
-  return function()
-    hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
-    hs.timer.usleep(1000)
-    hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
-  end
-end
-
-hs.hotkey.bind({'ctrl'}, 'n', keyCode('down'), nil, keyCode('down'))
-hs.hotkey.bind({'ctrl'}, 'p', keyCode('up'), nil, keyCode('up'))
 
 -- hs.hotkey.bind({'ctrl'}, 'h', keyCode('left'), nil, keyCode('left'))
 -- hs.hotkey.bind({'ctrl'}, 'j', keyCode('down'), nil, keyCode('down'))
