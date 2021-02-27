@@ -1,6 +1,6 @@
 [user]
-	email = fabio@mazarotto.me
-	name = Fabio Mazarotto
+  email = fabio@mazarotto.me
+  name = Fabio Mazarotto
 [color]
   ui = auto
 [color "branch"]
@@ -17,9 +17,12 @@
   changed = green
   untracked = cyan
 [core]
-	excludesfile = /Users/fabiomazarotto/.gitignore_global
-	quotepath = false
-	precomposeUnicode = true
+  excludesfile = /Users/HMz/.gitignore
+  quotepath = false
+  precomposeUnicode = true
+  editor = emacsclient -t -a=\\\"\\\"
+  attributesfile = ~/.gitattributes
+	autocrlf = input
 [alias]
   s = status -sb
   co = checkout
@@ -48,6 +51,7 @@
   # example: search commits for "foobar", print full diff of commit with 1 line context
   #     git searchcommits foobar --pickaxe-all -U1 src/lib
   searchcommits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
+  diff-image = "!f() { cd -- \"${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f"
 [difftool "Kaleidoscope"]
   cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [apply]
@@ -55,10 +59,16 @@
 [rerere]
   enabled = true
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [push]
-	default = simple
+  default = simple
+[github]
+  # oauth-token = 8d91d38e9a81c64e1354d4bdaeb5f6ccf9438bfa
+  oauth-token = 9c035c7328fb7f59bab00a9e036f027522eb4bf5
+  user = henrymazza
+[diff "image"]
+  command = ~/Documents/bin/git-diff-image/git_diff_image

@@ -1,1 +1,5 @@
 .DS_Store
+node_modules
+resources
+/TODOs.org
+*.org_archive
