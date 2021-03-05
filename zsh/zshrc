@@ -192,6 +192,8 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # Kubernetes auto completion
 source <(kubectl completion zsh)
 
+eval $(/opt/homebrew/bin/brew shellenv)
+
 function preexec {
     tabset $1 && print "\e[1F\e[0J"
 }
